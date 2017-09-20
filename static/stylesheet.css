@@ -1,7 +1,31 @@
+/* CSS voor alle pagina's */
 html {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 5px;
 }
 
 .main {
-  padding-left: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+/* CSS voor info.html */
+.block {
+  background-color: #d6d6d6;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 3px 3px 1px black;
+}
+
+#testHeaders {
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#testCol {
+  color: red;
+}
+
+#testFont {
+  font-family: verdana;
+  font-size: 10px;
 }
