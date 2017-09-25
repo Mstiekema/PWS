@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
   res.render('index.html')
 })
 
-app.get('/info', function (req, res) {
+app.get('/talen', function (req, res) {
   res.render('info.html')
 })
 

@@ -5,20 +5,23 @@ html {
 }
 
 .main {
-  padding: 0px 10px 0px 10px;
+  margin-top: 10px;
+  padding: 0px 15px 0px 15px;
 }
 
 /* CSS voor info.html */
 .block {
-  background-color: #d6d6d6;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 3px 3px 1px black;
+  background-color: #DAE4F0;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: .5em;
 }
 
 #testHeaders {
   border: 1px solid black;
   display: inline-block;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 
 #testCol {
