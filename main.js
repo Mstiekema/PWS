@@ -17,6 +17,14 @@ app.get('/talen', function (req, res) {
   res.render('info.html')
 })
 
+app.get('/zoek/:zoek', function (req, res) {
+  res.render('zoek.html', {zoek: req.params.zoek})
+})
+
+app.get('/login', function (req, res) {
+  res.render('login.html')
+})
+
 app.all('*', function(req, res, next) {
   res.render('error.html')
 });

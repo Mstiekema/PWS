@@ -58,3 +58,14 @@ html {
   font-family: verdana;
   font-size: 10px;
 }
+
+/* CSS voor login */
+#loginBox {
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #828282;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+}

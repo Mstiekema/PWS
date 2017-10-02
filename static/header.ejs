@@ -3,10 +3,10 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="./basic.js"></script>
+  <script type="text/javascript" src="../basic.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
   <script>
     $(document).ready(function () {
         var loc = $('.nav-item').find('a').attr('href');
@@ -14,6 +14,7 @@
         var urlEnd = "/" + url[3]
         var div = $('a[href^="'+urlEnd+'"]')[0];
       $(".nav-item a").removeClass("active");
+      if(urlEnd == "/login") return
       $(div).addClass('active');
     });
   </script>
@@ -38,6 +39,7 @@
       <form class="form-inline my-2 my-lg-0" >
         <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">
       </form>
-      <button id="zoekknop"class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoek</button>
+      <button id="zoekknop"class="btn btn-outline-success" type="submit">Zoek</button>&nbsp; 
+      <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
     </div>
   </nav>
