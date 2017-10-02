@@ -9,6 +9,30 @@ html {
   padding: 0px 15px 0px 15px;
 }
 
+/* CSS home page */
+.container {
+  position: relative;
+  background-color: #e6e6e6;
+  width: 100%;
+}
+
+#mainHeader {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  /* background-color: #66ff99; */
+}
+
+#backgroundImg {
+  display: block;
+  width: 60%;
+  height: auto;
+  margin: auto;
+  opacity: 0.8;
+}
+
 /* CSS voor info.html */
 .block {
   background-color: #DAE4F0;
@@ -22,6 +46,8 @@ html {
   display: inline-block;
   padding: 10px;
   margin-bottom: 15px;
+  font-family: 'Times', serif;
+  color: black;
 }
 
 #testCol {
