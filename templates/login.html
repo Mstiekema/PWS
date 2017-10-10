@@ -1,15 +1,30 @@
 <% include ../static/header.ejs %>
 <div id="loginBox">
-  <h4 class="loginTitle">Inloggen</h4>
-  <p class="loginText">
-    Username:<br>
-    <input type="text" name="username">
-    <br>
-    Password:<br>
-    <input type="password" name="password">
-  </p>
-  <input type="submit" value="Submit"  id='login'><br>
-  <a href="/login/new">Create account</a><br>
-  <a href="/login/forgot">Forgot password</a>
+  <% if(type == "new") { %>
+    <h4 class="loginTitle">Maak een account</h4>
+    <p class="loginText">
+      Gebruikersnaam:<br>
+      <input type="text" name="newUsername"><br>
+      Wachtwoord:<br>
+      <input type="password" name="newPassword"><br>
+      Bevestig wachtwoord:<br>
+      <input type="password" name="confPassword"><br>
+      Email:<br>
+      <input type="text" name="email">
+    </p>
+    <input type="submit" value="Submit" id='newLogin'><br>
+  <% } else { %>
+    <h4 class="loginTitle">Inloggen</h4>
+    <p class="loginText">
+      Gebruikersnaam:<br>
+      <input type="text" name="username">
+      <br>
+      Wachtwoord:<br>
+      <input type="password" name="password">
+    </p>
+    <input type="submit" value="Submit" id='login'><br>
+    <a href="/login/new">Maak een account</a><br>
+    <a href="/login/forgot">Wachtwoord vergeten</a>
+  <% } %>
 </div>
-<script type="text/javascript" src="login.js"></script>
+<script type="text/javascript" src="../login.js"></script>
