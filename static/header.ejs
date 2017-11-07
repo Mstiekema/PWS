@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../stylesheet.css">
   <script>
+    // Hiermee wordt de huidige pagina in de navigatie balk gehighlight
     $(document).ready(function () {
         var loc = $('.nav-item').find('a').attr('href');
         var url = location.href.split('/')
@@ -25,8 +26,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <span class="navbar-brand" >PWS</span>
-
+    <span class="navbar-brand">PWS</span>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -36,9 +36,7 @@
           <a class="nav-link" href="/talen">Programmeertalen</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" >
-        <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">
-      </form>
+      <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">
       <button id="zoekknop"class="btn btn-outline-success" type="submit">Zoek</button>&nbsp; 
       <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
     </div>

@@ -9,6 +9,10 @@ html {
   padding: 0px 15px 0px 15px;
 }
 
+#zoek { 
+  width: 200px;
+}
+
 /* CSS home page */
 .container {
   position: relative;
