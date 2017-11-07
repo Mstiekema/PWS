@@ -15,7 +15,7 @@ $(document).ready(function() {
     if(p1 != p2) return window.alert("Wachtwoorden komen niet overeen");
     
     $.ajax({
-      url: 'http://localhost:1000/login/new',
+      url: '/login/new',
       data: {
         username: $("input[name='newUsername']").val(),
         password: p1,
@@ -34,7 +34,7 @@ $(document).ready(function() {
   
   function login() {
     $.ajax({
-      url: 'http://localhost:1000/login',
+      url: '/login',
       data: {
         username: $("input[name='username']").val(),
         password: $("input[name='password']").val()
@@ -49,5 +49,4 @@ $(document).ready(function() {
       }
     });
   }
-  
 });

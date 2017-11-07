@@ -13,7 +13,7 @@ $(document).ready(function(){
     if(p1 != p2) return window.alert("Wachtwoorden komen niet overeen");
     
     $.ajax({
-      url: 'http://localhost:1000/uren',
+      url: '/uren',
       data: {
         minuten: $("input[id='tijd']").val(),
         activiteit: $("input[id='act']").val()
