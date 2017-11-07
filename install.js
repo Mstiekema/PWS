@@ -19,10 +19,9 @@ conn.query(
 
 conn.query(
 	'CREATE TABLE uren (' +
-	'username VARCHAR(25) PRIMARY KEY,' +
+	'username VARCHAR(25),' +
 	'activiteit VARCHAR(254),' +
-	'minuten INT,' +
-	'UNIQUE (username))',
+	'minuten INT)',
 	function (err, result) {if (err) {return}}
 )
 

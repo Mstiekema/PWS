@@ -8,6 +8,11 @@ html {
   margin-top: 10px;
   padding: 0px 15px 0px 15px;
 }
+#welkom {
+  padding-top: 7px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
 
 #zoek { 
   width: 200px;
@@ -72,4 +77,16 @@ html {
   border-radius: 10px;
   margin: auto;
   margin-top: 20px;
+}
+
+/* CSS voor uren page */
+
+.card {
+  display: block;
+}
+
+#tijd, #act {
+  margin: 7px;
+  display: inline-block;
+  width: 250px;
 }

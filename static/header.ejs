@@ -38,6 +38,12 @@
       </ul>
       <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">
       <button id="zoekknop"class="btn btn-outline-success" type="submit">Zoek</button>&nbsp; 
-      <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
+      <!-- Hier controleer je of er een user is ingelogged of niet. -->
+      <% if (user.logged) { %>
+        <span id="welkom">Welkom <%= user.user.username %>!</span>
+        <a class="btn btn-outline-danger" href="/logout" role="button">Logout</a>
+      <% } else { %>
+        <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
+      <% } %>
     </div>
   </nav>
