@@ -7,6 +7,7 @@
         <div class="card">
           <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)">
           <input type="text" class="form-control" id="act" placeholder="Activiteit">
+          <input type="text" class="form-control" id="date" placeholder="Datum">
           <button id="urenSubmit" class="btn btn-outline-info" type="submit">Invoeren</button>
         </div>
       <% } else { %>
@@ -14,6 +15,7 @@
           <button type="button" class="btn btn-danger" id="infBtn" data-toggle="popover">?</button>
           <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)" disabled>
           <input type="text" class="form-control" id="act" placeholder="Activiteit" disabled>
+          <input type="text" class="form-control" id="date" placeholder="Datum" disabled>
           <button id="urenSubmit" class="btn btn-outline-info" type="submit" disabled>Invoeren</button>
         </div>
       <% } %>
@@ -26,6 +28,7 @@
               <th>Username</th>
               <th>Tijd (in minuten)</th>
               <th>Activiteit</th>
+              <th>Datum</th>
             </tr>
           </thead>
           <tbody>
@@ -34,6 +37,7 @@
                 <td><%= u.username %></td> 
                 <td><%= u.minuten %></td> 
                 <td><%= u.activiteit %></td>
+                <td><%= u.datum %></td>
               </tr>
             <% }) %>
           </tbody>

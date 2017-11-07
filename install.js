@@ -22,6 +22,7 @@ conn.query(
 	'id INT AUTO_INCREMENT PRIMARY KEY,' +
 	'username VARCHAR(25),' +
 	'activiteit VARCHAR(254),' +
+	'datum VARCHAR(10),' +
 	'minuten INT)',
 	function (err, result) {if (err) {return}}
 )

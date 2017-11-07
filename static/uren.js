@@ -8,15 +8,12 @@ $(document).ready(function(){
   });
   
   $('#urenSubmit').on('click', function(event) {
-    var p1 = $("input[name='newPassword']").val();
-    var p2 = $("input[name='confPassword']").val();
-    if(p1 != p2) return window.alert("Wachtwoorden komen niet overeen");
-    
     $.ajax({
       url: '/uren',
       data: {
         minuten: $("input[id='tijd']").val(),
-        activiteit: $("input[id='act']").val()
+        activiteit: $("input[id='act']").val(),
+        datum: $("input[id='date']").val(),
       },
       type: 'POST',
       success: function (data) {
