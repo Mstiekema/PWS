@@ -1,0 +1,47 @@
+<% include ../static/header.ejs %>
+<div class="main">
+  <div>
+    <p>
+      Hier kan je zien hoe lang wij hebben gewerkt aan deze website.
+      <% if (user.logged) { %>
+        <div class="card">
+          <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)">
+          <input type="text" class="form-control" id="act" placeholder="Activiteit">
+          <button id="urenSubmit" class="btn btn-outline-info" type="submit">Invoeren</button>
+        </div>
+      <% } else { %>
+        <div class="card">
+          <button type="button" class="btn btn-danger" id="infBtn" data-toggle="popover">?</button>
+          <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)" disabled>
+          <input type="text" class="form-control" id="act" placeholder="Activiteit" disabled>
+          <button id="urenSubmit" class="btn btn-outline-info" type="submit" disabled>Invoeren</button>
+        </div>
+      <% } %>
+    </p>
+    <div>
+      <% if(res[0]) { %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Tijd (in minuten)</th>
+              <th>Activiteit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% res.forEach(function(u) { %>
+              <tr>
+                <td><%= u.username %></td> 
+                <td><%= u.minuten %></td> 
+                <td><%= u.activiteit %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <b>Geen data gevonden in de database
+      <% } %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../uren.js"></script>

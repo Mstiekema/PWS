@@ -19,6 +19,7 @@ conn.query(
 
 conn.query(
 	'CREATE TABLE uren (' +
+	'id INT AUTO_INCREMENT PRIMARY KEY,' +
 	'username VARCHAR(25),' +
 	'activiteit VARCHAR(254),' +
 	'minuten INT)',

@@ -61,6 +61,18 @@ app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
 
+app.get('/uren/:user', function (req, res) {
+	conn.query('SELECT * FROM uren WHERE username = ?', req.params.user, function(err, result) {
+		res.render('uren.html', {res: result})
+	})
+})
+
+app.get('/uren', function (req, res) {
+	conn.query('SELECT * FROM uren', function(err, result) {
+		res.render('uren.html', {res: result})
+	})
+})
+
 app.get('/login', function (req, res) {
   res.render('login.html', {type: 'login'})
 })
@@ -69,13 +81,18 @@ app.get('/login/new', function (req, res) {
   res.render('login.html', {type: 'new'})
 })
 
+app.get('/logout', function(req, res) {
+	req.session.destroy();
+	res.redirect('/')
+})
+
 // Posts
 app.post('/login', function(req, res) {
 	conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
 		if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct') 
 		if (req.body.password == result[0].password) {
 			req.session.user = req.body
-			req.session.logged = true
+			req.session.logged = true			
 			res.status(200).send('Succesvol ingelogd')
 		}	else { 
 			res.status(400).send('Incorrect wachtwoord') 
@@ -94,9 +111,11 @@ app.post('/login/new', function(req, res) {
 	})
 })
 
-app.post('/logout', function(req, res) {
-	req.session.destroy();
-	res.status(200).send('Succesvol uitgelogd')
+app.post('/uren', function(req, res) {
+	req.body.username = req.session.user.username
+	conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
+		res.status(200).send('Uren succesvol toegevoegd aan database.')
+	})
 })
 
 app.all('*', function(req, res, next) {
