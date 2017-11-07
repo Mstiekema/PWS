@@ -1,19 +1,12 @@
 $(document).ready(function() {
   $('#login').on('click', function(event) {
-    $.ajax({
-      url: 'http://localhost:1000/login',
-      data: {
-        username: $("input[name='username']").val(),
-        password: $("input[name='password']").val()
-      },
-      type: 'POST',
-      success: function (data) {
-        console.log(data)
-      },
-      error: function (xhr, status, error) {
-        console.log(xhr.responseText)
-      }
-    });
+    login()
+  });
+  
+  $("input[name='password']").keyup(function(ev) {
+    if (ev.which === 13) {
+      login()
+    }
   });
   
   $('#newLogin').on('click', function(event) {
@@ -31,10 +24,30 @@ $(document).ready(function() {
       type: 'POST',
       success: function (data) {
         console.log(data)
+        window.location.href = "/"
       },
       error: function (xhr, status, error) {
         console.log(xhr.responseText)
       }
     });
   });
+  
+  function login() {
+    $.ajax({
+      url: 'http://localhost:1000/login',
+      data: {
+        username: $("input[name='username']").val(),
+        password: $("input[name='password']").val()
+      },
+      type: 'POST',
+      success: function (data) {
+        console.log(data)
+        window.location.href = "/"
+      },
+      error: function (xhr, status, error) {
+        console.log(xhr.responseText)
+      }
+    });
+  }
+  
 });
