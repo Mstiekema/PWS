@@ -61,6 +61,10 @@ app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
 
+app.get('/uitleg/:ondw', function (req, res) {
+  res.render('uitleg.html', {uitleg: req.params.ondw})
+})
+
 app.get('/uren/:user', function (req, res) {
 	conn.query('SELECT * FROM uren WHERE username = ?', req.params.user, function(err, result) {
 		res.render('uren.html', {res: result})

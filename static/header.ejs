@@ -15,7 +15,7 @@
         var urlEnd = "/" + url[3]
         var div = $('a[href^="'+urlEnd+'"]')[0];
       $(".nav-item a").removeClass("active");
-      if(urlEnd == "/login") return
+      if(urlEnd == "/login" || urlEnd == "/uitleg") return
       $(div).addClass('active');
     });
   </script>
@@ -37,6 +37,15 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/uren">Uren</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Uitleg
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/uitleg/website">Website</a>
+            <a class="dropdown-item" href="/uitleg/login">Login</a>
+          </div>
         </li>
       </ul>
       <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">

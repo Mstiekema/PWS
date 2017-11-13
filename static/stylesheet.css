@@ -80,7 +80,6 @@ html {
 }
 
 /* CSS voor uren page */
-
 .card {
   display: block;
 }
@@ -93,4 +92,14 @@ html {
   margin: 7px;
   display: inline-block;
   width: 250px;
+}
+
+/* CSS voor uitleg */
+.code {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
 }
