@@ -67,13 +67,51 @@ app.get('/uitleg/:ondw', function (req, res) {
 
 app.get('/uren/:user', function (req, res) {
 	conn.query('SELECT * FROM uren WHERE username = ?', req.params.user, function(err, result) {
-		res.render('uren.html', {res: result})
+		var tInfo = new Object();
+		tInfo.user = req.params.user
+		// Totale tijd
+		var tTot = 0;
+		for (i = 0; i < result.length; i++) {
+			tTot += result[i].minuten
+		}
+		var h = Math.floor(tTot / 60)
+		var m = Math.floor(tTot % 60)
+		tInfo.hours = h, tInfo.minutes = m
+		// Gemiddelde
+		var gem = tTot / result.length
+		var h = Math.floor(gem / 60)
+		var m = Math.floor(gem % 60)
+		tInfo.avHours = h, tInfo.avMinutes = m
+		res.render('uren.html', {res: result, tInfo: tInfo})
 	})
 })
 
 app.get('/uren', function (req, res) {
 	conn.query('SELECT * FROM uren', function(err, result) {
-		res.render('uren.html', {res: result})
+		var tInfo = new Object();
+		tInfo.user = "all"
+		// Graph
+		tInfo.all = {}
+		result.map(function(a) {
+			tInfo.all[a.username] = 0
+		})
+		result.map(function(a) {
+			tInfo.all[a.username] += a.minuten
+		})
+		// Totale tijd
+		var tTot = 0;
+		for (i = 0; i < result.length; i++) {
+			tTot += result[i].minuten
+		}
+		var h = Math.floor(tTot / 60)
+		var m = Math.floor(tTot % 60)
+		tInfo.hours = h, tInfo.minutes = m
+		// Gemiddelde
+		var gem = tTot / result.length
+		var h = Math.floor(gem / 60)
+		var m = Math.floor(gem % 60)
+		tInfo.avHours = h, tInfo.avMinutes = m
+		res.render('uren.html', {res: result, tInfo: tInfo})
 	})
 })
 
