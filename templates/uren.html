@@ -46,6 +46,7 @@
         <div id="uurChart"></div>
         <b>Totale tijd:</b> <%= tInfo.hours %> uur, <%= tInfo.minutes %> minuten<br>
         <b>Gemiddeld:</b> <%= tInfo.avHours %> uur, <%= tInfo.avMinutes %> minuten<br>
+        <% if (tInfo.user == "all") { %><button type="button" class="btn btn-danger" id="uurChartInf" data-placement="left" data-toggle="popover">?</button><% } %>
       </div>      
     </p>
     <div>

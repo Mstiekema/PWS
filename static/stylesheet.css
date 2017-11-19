@@ -102,6 +102,12 @@ html {
   right: 0px;
 }
 
+#uurChartInf {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 /* CSS voor uitleg */
 .code {
   border: 1px solid #bebab0;
