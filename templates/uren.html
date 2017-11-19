@@ -27,7 +27,7 @@
         <div class="card">
           <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)">
           <input type="text" class="form-control" id="act" placeholder="Activiteit">
-          <input type="text" class="form-control" id="date" placeholder="Datum">
+          <input type="date" class="form-control" id="date" placeholder="Datum">
           <button id="urenSubmit" class="btn btn-outline-info" type="submit">Invoeren</button>
         </div>
       <% } else { %>
@@ -35,11 +35,12 @@
           <button type="button" class="btn btn-danger" id="infBtn" data-toggle="popover">?</button>
           <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)" disabled>
           <input type="text" class="form-control" id="act" placeholder="Activiteit" disabled>
-          <input type="text" class="form-control" id="date" placeholder="Datum" disabled>
+          <input type="date" class="form-control" id="date" placeholder="Datum" disabled>
           <button id="urenSubmit" class="btn btn-outline-info" type="submit" disabled>Invoeren</button>
         </div>
       <% } %>
       <!-- Ja ik weet dat dit hieronder er lelijk uitziet, maar het werkt nu wel zoals ik wil :^) -->
+      <% if(res[0]) { %>
       <div class="card" <% if (tInfo.user == "all") { %>style="height: 320px;"<% } %>>
         <h3>Statistieken <% if (tInfo.user != "all") { %>van <%= tInfo.user %><% } %></h3>
         <div id="uurChart"></div>
@@ -48,30 +49,29 @@
       </div>      
     </p>
     <div>
-      <% if(res[0]) { %>
-        <table class="table">
-          <thead>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Tijd (in minuten)</th>
+            <th>Activiteit</th>
+            <th>Datum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% res.forEach(function(u) { %>
             <tr>
-              <th>Username</th>
-              <th>Tijd (in minuten)</th>
-              <th>Activiteit</th>
-              <th>Datum</th>
+              <td><a href="/uren/<%= u.username %>"><%= u.username %></a></td> 
+              <td><%= u.minuten %></td> 
+              <td><%= u.activiteit %></td>
+              <td><%= u.datum.getDate() + "/" + (u.datum.getMonth()+1) + "/" + u.datum.getFullYear() %></td>
             </tr>
-          </thead>
-          <tbody>
-            <% res.forEach(function(u) { %>
-              <tr>
-                <td><a href="/uren/<%= u.username %>"><%= u.username %></a></td> 
-                <td><%= u.minuten %></td> 
-                <td><%= u.activiteit %></td>
-                <td><%= u.datum %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      <% } else { %>
-        <b>Geen data gevonden in de database
-      <% } %>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <b>Geen data gevonden in de database
+    <% } %>
     </div>
   </div>
 </div>

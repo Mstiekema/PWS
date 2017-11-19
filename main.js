@@ -66,7 +66,7 @@ app.get('/uitleg/:ondw', function (req, res) {
 })
 
 app.get('/uren/:user', function (req, res) {
-	conn.query('SELECT * FROM uren WHERE username = ?', req.params.user, function(err, result) {
+	conn.query('SELECT * FROM uren WHERE username = ? ORDER BY datum', req.params.user, function(err, result) {
 		var tInfo = new Object();
 		tInfo.user = req.params.user
 		// Totale tijd
@@ -87,7 +87,7 @@ app.get('/uren/:user', function (req, res) {
 })
 
 app.get('/uren', function (req, res) {
-	conn.query('SELECT * FROM uren', function(err, result) {
+	conn.query('SELECT * FROM uren ORDER BY datum', function(err, result) {
 		var tInfo = new Object();
 		tInfo.user = "all"
 		// Graph
@@ -154,6 +154,7 @@ app.post('/login/new', function(req, res) {
 })
 
 app.post('/uren', function(req, res) {
+	console.log(req.body)
 	req.body.username = req.session.user.username
 	conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
 		res.status(200).send('Uren succesvol toegevoegd aan database.')
