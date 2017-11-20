@@ -1,4 +1,28 @@
 <% include ../static/header.ejs %>
+<div class="popUp">
+
+<div class="javaPop-content">
+  <span class="close">&times;</span><br><br><br><br><br><br><br><br>
+  <pre class="code" style="text-align: left;">
+  $.ajax({
+    url: '/login',
+    data: {
+      username: $("input[name='username']").val(),
+      password: $("input[name='password']").val()
+    },
+    type: 'POST',
+    success: function (data) {
+      console.log(data)
+      window.location.href = "/"
+    },
+    error: function (xhr, status, error) {
+      console.log(xhr.responseText)
+    }
+  });
+  </pre>
+</div>
+
+</div>
 <div class="main">
   <% if (uitleg == "login") { %>
       <h1>Login systeem</h1>
@@ -10,7 +34,7 @@
         Als eerst geven we aan dat wat input tekst is in plaats van een getal of iets anders. Door de "name" eigenschap van de input te gebruiken kan later de input gevonden worden door JavaScript. Als laatste kan je met de "placeholder" de input een voorbeeld tekst geven. Je kan ook met CSS de inputs en knoppen er mooier uit laten zien, maar dat is voor nu niet van belang.<br><br>
         <h4>JavaScript</h4>
         Om nu je gebruikersnaam (en wachtwoord) op te halen en wat mee te doen heb je dus JS nodig. Dit is te doen door alleen JavaScript zelf te gebruiken, maar om het makkelijker en overzichtelijker te maken gebruiken wij JQuery wat wij importeren in de header. Als eerst voegen wij toe een button en key listener toe. Hiermee luisteren we naar het indrukken van de enter knop of het indrukken van de inlog knop op de pagina. Zodra je dit doet, activeer je deze code:<br>
-<pre class="code">
+<button id="codeId"><pre class="code">
 $.ajax({
   url: '/login',
   data: {
@@ -26,31 +50,31 @@ $.ajax({
     console.log(xhr.responseText)
   }
 });
-</pre><br>
+</pre></button><br>
         De ajax function wordt gebruikt om een request naar de server te sturen. Dit kan een <code>POST</code> of een <code>GET</code> request zijn. Voor het login systeem gebruiken wij een post request om dus informatie naar de server te sturen. Om dit te doen moeten er nog wel een aantal dingen gedaan worden. Als eerst geven we aan via welk adres we de request doen, wat in dit geval <code>/login</code> is. De <code>data</code> tag geeft weer welke gegevens wij naar de server sturen. Als laatste geven we ook nog aan wat we willen doen als de request succesvol is of niet. Dit gebeurd door de <code>success</code> en <code>error</code> function te vermelden. In ons gevallen loggen wij gewoon de login data en verwijzen we naar de home page als je succesvol bent ingelogd. Als dit niet het geval is, loggen we in de console wat er mis is gegaan.<br><br>
         <h4>Server side</h4>
         Op de server moeten we als eerste weer een listener toevoegen om te luisteren naar de <code>POST</code> request van de login pagina. Dit doen we op dezelfde manier als dat we luisteren naar een call van een webpagina.<br>
 <pre class="code">
 app.post('/login', function(req, res) {
   conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
-    if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct') 
+    if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct')
     if (req.body.password == result[0].password) {
       req.session.user = req.body
-      req.session.logged = true			
+      req.session.logged = true
       res.status(200).send('Succesvol ingelogd')
-    }	else { 
-      res.status(400).send('Incorrect wachtwoord') 
+    }	else {
+      res.status(400).send('Incorrect wachtwoord')
     }
   })
 })
 </pre><br>
         Als eerste zeggen we dat we voor deze functie luisteren naar post requests op de <code>/login</code> url. Daarna maken we een database query waar we zoeken of de gebruikersnaam bestaat in onze database. Zo niet, dan sturen we meteen met <code>res.status(400).send('')</code> een error terug naar de gebruiker. Als de gebruiker wel bestaat, dan controleren we of het ingevoerde wachtwoord klopt met wat er ook in de database staat. Als dat niet zo is sturen we weer een error terug. Als alles wel klopt, dan worden je gegevens opgeslagen als cookie in de server zelf. Hierdoor kan je browser dan later deze opgraven zodat je ingelogd blijft ookal verlaat je de website. Zodra dit is gedaan sturen we via <code>res.status(200).send('')</code> een bevestiging naar de gebruiker zodat deze weet dat hij is ingelogd.
       </p>
-      
-      
+
+
   <% } else if (uitleg == "website") { %>
-    
-    
+
+
     <h1>Basis website</h1>
     <img src="../websiteinfo.png" width="30%" align="right">
     <p>
@@ -69,36 +93,36 @@ app.get('/', function (req, res) {
 app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
-</pre><br>      
+</pre><br>
       Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er vanalles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
       Als je alleen de waarde wilt neerzetten op de pagina kan je gewoon heel simpel <code>&lt;&#37;&#61; zoek &#37;&gt;</code> gebruiken. Dit print gewoon de waarde uit op de pagin. Als je er echter wat mee wil doen, bijvoorbeeld een for loop maken als je een array meestuurd, dan kan dat niet op deze manier.<br>
 <pre class="code">
 &lt;&#37; res.forEach(function(res) { &#37;&gt;
-  &lt;b&gt;&lt;&#37;&#61;= res.waarde &#37;&gt;&lt;/b&gt; 
+  &lt;b&gt;&lt;&#37;&#61;= res.waarde &#37;&gt;&lt;/b&gt;
 &lt;&#37; }) &#37;&gt;
 </pre><br>
       <code>res</code> is in dit geval een array met meerdere arrays erin. Van elke array pakken we de minuten waarde en printen we deze in bold uit op de pagina.<br>
       Het verschil tussen de twee manieren, is het gebruik van de <code>=</code>. Als je <code>&lt;&#37;&#61; &#37;&gt;</code> gebruikt, dan print je gewoon de waarde uit. Als je <code>&lt;&#37; &#37;&gt;</code> gebruikt kan je een if statement, for loop of iets anders doen.<br><br>
       Wat je ook kan doen met EJS het in importeren van andere bestanden. Hier maken wij ook gebruik van, omdat de header en menu altijd hetzelfde zijn op elke pagina. We hebben daarom een header bestand gemaakt en importeren wij deze aan het begin van elke HTML template met <code>&lt;&#37; include ../static/header.ejs &#37;&gt;</code>. Door dit te doen besparen wij op elke HTML pagina een tientallen lines. Dit maakt het gehele project voor ons dus veel overzichtelijker.
-      
-      
+
+
   <% } else if (uitleg == "database") { %>
-      
-      
+
+
       <h1>Databases / MySQL</h1>
       <p>
         LOOOOOOOOOOOOOL 4HEad
         <h4>INSERT</h4>
         Je kan dingen invoegen<br><br>
-        
+
         <h4>UPDATE</h4>
         Je kan dingen updaten<br><br>
-        
+
         <h4>DELETE</h4>
         Je kan dingen deleten<br><br>
       </p>
-      
-      
+
+
   <% } else { %>
       Er is geen informatie beschikbaar over dit onderwerp
   <% } %>
