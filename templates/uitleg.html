@@ -111,15 +111,35 @@ app.get('/zoek/:zoek', function (req, res) {
 
       <h1>Databases / MySQL</h1>
       <p>
-        LOOOOOOOOOOOOOL 4HEad
+        Achter een website zit vaak ook een database. In een database wordt bepaalde informatie opgeslagen die weer kan worden opgehaald. In een database kan bijvoorbeeld login informatie opgeslagen worden. Er zijn verschillende soorten databases die je kan gebruiken en ieder heeft zo zijn eigen voordelen. Wij zelf gebruiken MySQL omdat deze het meest bekend is en veel mogelijkheden biedt.<br>
+        De basis van de meeste databases zijn dat ze bestaan uit tables gevuld met rows van informatie. Deze tables kan je zelf aanmaken en ook welke waarden je dan kan invullen. Voor een table met login informatie kan bijvoorbeeld de kolommen <code>Username</code>, <code>Password</code> en <code>Email</code> bevatten.<br>
+        
+        <h4>Verbinding maken</h4>
+        Je kan niet zomaar op de website zelf verbinding maken met de database, omdat je dan kwetsbare informatie zomaar vrij kan geven. Eerst maak je op de server een verbinding met de database door het gebruik van de MySQL package in Node.JS.<br>
+<pre class="code">
+var conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'pws',
+  port: 3306
+});
+</pre><br>
+        Zodra er een verbinding is met de database, kan er vanalles mee gedaan worden. In het <code>conn</code> variable geven we aan dat we een verbinding maken met MySQL als een bepaalde user en geven we ook meteen aan met welke van de databases je iets wil doen. Zodra dit is gedaan, kan je met met <code>conn.query('STATEMENT', function(err, result) {})</code> informatie ophalen, toevoegen of updaten in een bepaalde table.<br><br>
+        
+        <h4>SELECT</h4>
+        Als je informatie wil ophalen uit een table, kan je dat doen met de select statement. Door <code>SELECT * FROM userinfo WHERE username = "Mstiekema"</code> te gebruiken als statement kan je alle informatie ophalen uit de table <code>userinfo</code> waar de naam van de gebruiker Mstiekema is. Door <code>*</code> te gebruiken zeggen we tegen de database dat we alle informatie uit een table willen halen. Als je alleen bepaalde kolommen wil ophalen, kan dat door <code>*</code> te vervangen met <code>password, username</code>. Hierdoor haal je alleen van de gebruiker het wachtwoord en de gebruikersnaam op en laat de rest van de informatie met rust.
+        <br><br>
+        
         <h4>INSERT</h4>
-        Je kan dingen invoegen<br><br>
+        De insert statement doet wat het zelf al zegt. Als je deze uitvoert en informatie erbij leverd, dan kan je een row toevoegen in de table. Een voorbeeld hiervan is <code>INSERT INTO userinfo set "object"</code>. Hier zeggen we dat we een object toevoegen aan de table <code>userinfo</code>. Het object wat je toegevoegd moet wel kloppen met de kolommen van je table, anders krijg je een error terug gestuurd na het proberen van invoegen.<br><br>
 
         <h4>UPDATE</h4>
-        Je kan dingen updaten<br><br>
+        Iets updaten in een table is ook erg makkelijk te doen. Met <code>UPDATE userinfo SET password = "newPassword" WHERE username ="username+</code> kan je updaten wat iemand zijn wachtwoord is. Eerst geef je weer in welke table je iets wil updaten en in welke kolum je een verandering wil aanbrengen. Daarna geef je weer welke waarde je veranderd. Als je een niet bestaande table of een verkeerde kolum invoert, dan krijg je weer een error. Als het wel lukt, dan krijg je een object terug gestuurd waarin je kan zien dat er een row is veranderd.
+        <br><br>
 
         <h4>DELETE</h4>
-        Je kan dingen deleten<br><br>
+        Informatie verwijderen uit een database is ook nodig en dat kan je doen met de delete statement. Door <code>DELETE FROM userinfo WHERE username = "Mstiekema"</code> uit te voeren als statement, verwijderen we de row waar de username Mstiekema is uit de table <code>userinfo</code>.
       </p>
 
 
