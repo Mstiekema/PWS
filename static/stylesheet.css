@@ -23,6 +23,7 @@ html {
   position: relative;
   background-color: #ffffff;
   width: 100%;
+  padding-bottom: 5px;
 }
 
 #mainHeader {
@@ -30,7 +31,7 @@ html {
   left: 5%;
   top: 50%;
   font-size: 2.4vw;
-  color: #00323d;
+  color: #013b51;
 }
 
 #backgroundImg {
@@ -40,10 +41,21 @@ html {
   margin: auto;
 }
 
+.balk {
+  text-align: center;
+  border-top: 1px solid #216983;
+  border-bottom: 2px solid #216983;
+  margin-bottom: 5px;
+}
+
+.balk h2 {
+  color: #013b51;
+}
+
 .boxMain {
   padding: 10px 10px 0px 10px;
   position: relative;
-  border: 2px solid grey;
+  border: 2px solid #013b51;
   border-radius: 10px;
   width: 100%;
   height: 315px;
@@ -78,10 +90,11 @@ html {
 }
 
 .responsive{
-  padding: 5px 6px;
+  padding: 0px 6px;
      float: left;
      width: 24.9999%;
      margin: 10px 0px;
+     cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px){
@@ -106,7 +119,7 @@ html {
 }
 
 .boxMain:hover {
-  border: 2px solid #595959;
+  border: 2px solid #025472;
   box-shadow: 0 4px 8px 0 lightGrey, 0 6px 20px 0 lightGrey;
 }
 
@@ -114,7 +127,7 @@ html {
   width: 100%;
   padding: 10px;
   margin-top: 8px;
-  background-color: grey;
+  background-color: black;
   color: white;
   text-align: center;
 }
