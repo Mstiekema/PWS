@@ -26,7 +26,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <span class="navbar-brand">PWS</span>
+    <span class="navbar-brand" onclick="location.href='/';">PWS</span>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -50,7 +50,7 @@
         </li>
       </ul>
       <input class="form-control mr-sm-2" id="zoek" type="text" placeholder="Zoek">
-      <button id="zoekknop"class="btn btn-outline-success" type="submit">Zoek</button>&nbsp; 
+      <button id="zoekknop"class="btn btn-outline-success" type="submit">Zoek</button>&nbsp;
       <!-- Hier controleer je of er een user is ingelogged of niet. -->
       <% if (user.logged) { %>
         <span id="welkom">Welkom <%= user.user.username %>!</span>

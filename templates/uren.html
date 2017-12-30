@@ -47,7 +47,7 @@
         <b>Totale tijd:</b> <%= tInfo.hours %> uur, <%= tInfo.minutes %> minuten<br>
         <b>Gemiddeld:</b> <%= tInfo.avHours %> uur, <%= tInfo.avMinutes %> minuten<br>
         <% if (tInfo.user == "all") { %><button type="button" class="btn btn-danger" id="uurChartInf" data-placement="left" data-toggle="popover">?</button><% } %>
-      </div>      
+      </div>
     </p>
     <div>
       <table class="table">
@@ -62,8 +62,8 @@
         <tbody>
           <% res.forEach(function(u) { %>
             <tr>
-              <td><a href="/uren/<%= u.username %>"><%= u.username %></a></td> 
-              <td><%= u.minuten %></td> 
+              <td><a href="/uren/<%= u.username %>"><%= u.username %></a></td>
+              <td><%= u.minuten %></td>
               <td><%= u.activiteit %></td>
               <td><%= u.datum.getDate() + "/" + (u.datum.getMonth()+1) + "/" + u.datum.getFullYear() %></td>
             </tr>
@@ -76,4 +76,5 @@
     </div>
   </div>
 </div>
+<% include ../static/footer.ejs %>
 <script type="text/javascript" src="../uren.js"></script>

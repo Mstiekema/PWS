@@ -70,7 +70,7 @@ app.post('/login', function(req, res) {
 </pre><br>
         Als eerste zeggen we dat we voor deze functie luisteren naar post requests op de <code>/login</code> url. Daarna maken we een database query waar we zoeken of de gebruikersnaam bestaat in onze database. Zo niet, dan sturen we meteen met <code>res.status(400).send('')</code> een error terug naar de gebruiker. Als de gebruiker wel bestaat, dan controleren we of het ingevoerde wachtwoord klopt met wat er ook in de database staat. Als dat niet zo is sturen we weer een error terug. Als alles wel klopt, dan worden je gegevens opgeslagen als cookie in de server zelf. Hierdoor kan je browser dan later deze opgraven zodat je ingelogd blijft ookal verlaat je de website. Zodra dit is gedaan sturen we via <code>res.status(200).send('')</code> een bevestiging naar de gebruiker zodat deze weet dat hij is ingelogd.
       </p>
-
+  <% include ../static/footer.ejs %>
 
   <% } else if (uitleg == "website") { %>
 
@@ -104,7 +104,7 @@ app.get('/zoek/:zoek', function (req, res) {
       <code>res</code> is in dit geval een array met meerdere arrays erin. Van elke array pakken we de minuten waarde en printen we deze in bold uit op de pagina.<br>
       Het verschil tussen de twee manieren, is het gebruik van de <code>=</code>. Als je <code>&lt;&#37;&#61; &#37;&gt;</code> gebruikt, dan print je gewoon de waarde uit. Als je <code>&lt;&#37; &#37;&gt;</code> gebruikt kan je een if statement, for loop of iets anders doen.<br><br>
       Wat je ook kan doen met EJS het in importeren van andere bestanden. Hier maken wij ook gebruik van, omdat de header en menu altijd hetzelfde zijn op elke pagina. We hebben daarom een header bestand gemaakt en importeren wij deze aan het begin van elke HTML template met <code>&lt;&#37; include ../static/header.ejs &#37;&gt;</code>. Door dit te doen besparen wij op elke HTML pagina een tientallen lines. Dit maakt het gehele project voor ons dus veel overzichtelijker.
-
+  <% include ../static/footer.ejs %>
 
   <% } else if (uitleg == "database") { %>
 
@@ -113,7 +113,7 @@ app.get('/zoek/:zoek', function (req, res) {
       <p>
         Achter een website zit vaak ook een database. In een database wordt bepaalde informatie opgeslagen die weer kan worden opgehaald. In een database kan bijvoorbeeld login informatie opgeslagen worden. Er zijn verschillende soorten databases die je kan gebruiken en ieder heeft zo zijn eigen voordelen. Wij zelf gebruiken MySQL omdat deze het meest bekend is en veel mogelijkheden biedt.<br>
         De basis van de meeste databases zijn dat ze bestaan uit tables gevuld met rows van informatie. Deze tables kan je zelf aanmaken en ook welke waarden je dan kan invullen. Voor een table met login informatie kan bijvoorbeeld de kolommen <code>Username</code>, <code>Password</code> en <code>Email</code> bevatten.<br>
-        
+
         <h4>Verbinding maken</h4>
         Je kan niet zomaar op de website zelf verbinding maken met de database, omdat je dan kwetsbare informatie zomaar vrij kan geven. Eerst maak je op de server een verbinding met de database door het gebruik van de MySQL package in Node.JS.<br>
 <pre class="code">
@@ -126,11 +126,11 @@ var conn = mysql.createConnection({
 });
 </pre><br>
         Zodra er een verbinding is met de database, kan er vanalles mee gedaan worden. In het <code>conn</code> variable geven we aan dat we een verbinding maken met MySQL als een bepaalde user en geven we ook meteen aan met welke van de databases je iets wil doen. Zodra dit is gedaan, kan je met met <code>conn.query('STATEMENT', function(err, result) {})</code> informatie ophalen, toevoegen of updaten in een bepaalde table.<br><br>
-        
+
         <h4>SELECT</h4>
         Als je informatie wil ophalen uit een table, kan je dat doen met de select statement. Door <code>SELECT * FROM userinfo WHERE username = "Mstiekema"</code> te gebruiken als statement kan je alle informatie ophalen uit de table <code>userinfo</code> waar de naam van de gebruiker Mstiekema is. Door <code>*</code> te gebruiken zeggen we tegen de database dat we alle informatie uit een table willen halen. Als je alleen bepaalde kolommen wil ophalen, kan dat door <code>*</code> te vervangen met <code>password, username</code>. Hierdoor haal je alleen van de gebruiker het wachtwoord en de gebruikersnaam op en laat de rest van de informatie met rust.
         <br><br>
-        
+
         <h4>INSERT</h4>
         De insert statement doet wat het zelf al zegt. Als je deze uitvoert en informatie erbij leverd, dan kan je een row toevoegen in de table. Een voorbeeld hiervan is <code>INSERT INTO userinfo set "object"</code>. Hier zeggen we dat we een object toevoegen aan de table <code>userinfo</code>. Het object wat je toegevoegd moet wel kloppen met de kolommen van je table, anders krijg je een error terug gestuurd na het proberen van invoegen.<br><br>
 
@@ -141,7 +141,7 @@ var conn = mysql.createConnection({
         <h4>DELETE</h4>
         Informatie verwijderen uit een database is ook nodig en dat kan je doen met de delete statement. Door <code>DELETE FROM userinfo WHERE username = "Mstiekema"</code> uit te voeren als statement, verwijderen we de row waar de username Mstiekema is uit de table <code>userinfo</code>.
       </p>
-
+  <% include ../static/footer.ejs %>
 
   <% } else { %>
       Er is geen informatie beschikbaar over dit onderwerp
