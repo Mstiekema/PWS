@@ -24,8 +24,9 @@ $(document).ready(function() {
       window.location.href = "/zoek/" + zoek
     }
   }
-//popup van info ?
-  info.onclick = function () {
+
+// Popup van info ?
+  info.onclick = function() {
   var info = document.getElementById("infoId");
   info.classList.toggle("show");
 }

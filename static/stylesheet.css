@@ -13,10 +13,6 @@ html {
   cursor: pointer;
 }
 
-.nav-item, .navbar-brand{
-  width: 10px;
-}
-
 #welkom {
   padding-top: 7px;
   padding-left: 5px;
@@ -134,16 +130,16 @@ html {
 
  /* Info popup*/
   #info {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      padding: 7px;
-      width: 40px;
-      height: 40px;
-      background-color: #ff3333;
-      color: white;
-      text-align: center;
-      border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    background-color: #ff3333;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
   }
 
   #info .infoText {
@@ -312,4 +308,21 @@ html {
   text-align: left;
   background: transparent;
   border: none !important;
+}
+
+/* CSS voor paint*/
+.paint {
+  align: center;
+  height: 640px;
+  width: 640px;
+  border: 3px solid black;
+}
+
+#tile {
+  height: 50%;
+  width: 50%;
+  position: relative;
+  float: left;
+  border: 3px solid black;
+  background-color: white;
 }

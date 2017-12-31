@@ -1,0 +1,28 @@
+<% include ../static/header.ejs %>
+<div class="main">
+
+  <div class="paint">
+    <div id="tile">
+    </div>
+
+    <div id="tile">
+    </div>
+
+    <div id="tile">
+    </div>
+
+    <div id="tile">
+    </div>
+  </div>
+
+</div>
+<script>
+  var paint = document.getElementById('tile');
+  paint.onclick = function() {
+    if (this.style.backgroundColor == 'black') {
+    this.style.backgroundColor = 'white';
+  } else {
+    this.style.backgroundColor = 'black';
+    }
+  };
+</script>

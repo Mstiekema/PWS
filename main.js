@@ -128,6 +128,10 @@ app.get('/logout', function(req, res) {
 	res.redirect('/')
 })
 
+app.get('/paint', function (req, res) {
+  res.render('paint.html')
+})
+
 // Posts
 app.post('/login', function(req, res) {
 	conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
