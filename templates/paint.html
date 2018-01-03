@@ -1,28 +1,148 @@
 <% include ../static/header.ejs %>
 <div class="main">
 
+<h1>Paint</h1>
+<div>
   <div class="paint">
-    <div id="tile">
+    <div class="doek">
+      <% include ../static/paint.ejs %>
     </div>
-
-    <div id="tile">
-    </div>
-
-    <div id="tile">
-    </div>
-
-    <div id="tile">
-    </div>
+      <button class="rasterButton" id="raster">Raster</button>
+      <button class="kleur" id="zwart"></button>
+      <button class="kleur" id="wit"></button>
+      <button class="kleur" id="rood"></button>
+      <button class="kleur" id="oranje"></button>
+      <button class="kleur" id="geel"></button>
+      <button class="kleur" id="groen"></button>
+      <button class="kleur" id="blauw"></button>
+      <button class="kleur" id="paars"></button>
+      <button id="reset">Reset</button>
   </div>
-
 </div>
+<br><br>
+<% include ../static/footer.ejs %>
+</div>
+
 <script>
-  var paint = document.getElementById('tile');
-  paint.onclick = function() {
-    if (this.style.backgroundColor == 'black') {
-    this.style.backgroundColor = 'white';
-  } else {
-    this.style.backgroundColor = 'black';
-    }
+var raster = document.getElementById("raster")
+var reset = document.getElementById("reset")
+var zwart = document.getElementById("zwart")
+var wit = document.getElementById("wit")
+var rood = document.getElementById("rood")
+var oranje = document.getElementById("oranje")
+var geel = document.getElementById("geel")
+var groen = document.getElementById("groen")
+var blauw = document.getElementById("blauw")
+var paars = document.getElementById("paars")
+var down = false
+
+ raster.onclick = function() {
+  $(".tile").toggleClass("raster");
+   $(".rasterButton").toggleClass("paintActive");
   };
+
+ reset.onclick = function() {
+  $(".tile").css("background-color", "white");
+  };
+
+$(document).mousedown(function() {
+  down = true;
+}).mouseup(function() {
+  down = false;
+});
+
+ zwart.onclick = function() {
+   $(".tile").mouseover(function(){
+     if(down) {
+       $(this).css("background-color", "black");
+     } else { $(".tile").mousedown(function(){
+       $(this).css("background-color", "black");
+      });
+     };
+   });
+  }
+
+  wit.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "white");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "white");
+       });
+      };
+    });
+  }
+
+  rood.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "red");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "red");
+       });
+      };
+    });
+  }
+
+  oranje.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "orange");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "orange");
+       });
+      };
+    });
+  }
+
+  geel.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "yellow");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "yellow");
+       });
+      };
+    });
+  }
+
+  groen.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "green");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "green");
+       });
+      };
+    });
+  }
+
+  blauw.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "blue");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "blue");
+       });
+      };
+    });
+  }
+
+  paars.onclick = function() {
+    $(".tile").mouseover(function(){
+      if(down){
+        $(this).css("background-color", "purple");
+      } else { $(".tile").mousedown(function(){
+        $(this).css("background-color", "purple");
+       });
+      };
+    });
+  }
+
+  $(document).ready(function(){
+    $(".kleur").click(function(){
+      $(".kleur").removeClass("paintActive");
+        $(this).addClass("paintActive");
+    });
+  });
 </script>
