@@ -26,9 +26,8 @@ html {
 /* CSS home page */
 .container {
   position: relative;
-  background-color: #ffffff;
   width: 100%;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 #mainHeader {
@@ -317,6 +316,8 @@ html {
   margin: 0 auto;
 }
 
+.containerPaint{padding-bottom: 40px;}
+
 .doek {
   height: 640px;
   width: 640px;
@@ -352,6 +353,25 @@ html {
 
 .paintActive {
   border: 2px inset lightGrey;
+}
+
+@media only screen and (max-width: 695px){
+    .paint{width: 100%;}
+    .doek {height: 87.5vw; width: 100%; overflow: hidden;}
+    .kleur{height: 26px; width: 26px;}
+    #raster, #reset{height: 26px; font-size: 14px;}
+}
+
+@media only screen and (max-width: 500px){
+    .tile{height: 4.1666%; width: 4.1666%;}
+    .kleur{height: 22px; width: 22px;}
+    #raster, #reset{height: 22px; font-size: 12px;}
+}
+
+@media only screen and (max-width: 400px){
+    .tile{height: 6.25%; width: 6.25%;}
+    .kleur{height: 20px; width: 20px;}
+    #raster, #reset{height: 20px; font-size: 11px;}
 }
 
 #reset {float: right;}

@@ -94,7 +94,7 @@ app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
 </pre><br>
-      Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er vanalles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
+      Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er van alles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
       Als je alleen de waarde wilt neerzetten op de pagina kan je gewoon heel simpel <code>&lt;&#37;&#61; zoek &#37;&gt;</code> gebruiken. Dit print gewoon de waarde uit op de pagin. Als je er echter wat mee wil doen, bijvoorbeeld een for loop maken als je een array meestuurd, dan kan dat niet op deze manier.<br>
 <pre class="code">
 &lt;&#37; res.forEach(function(res) { &#37;&gt;
@@ -142,6 +142,18 @@ var conn = mysql.createConnection({
         Informatie verwijderen uit een database is ook nodig en dat kan je doen met de delete statement. Door <code>DELETE FROM userinfo WHERE username = "Mstiekema"</code> uit te voeren als statement, verwijderen we de row waar de username Mstiekema is uit de table <code>userinfo</code>.
       </p>
   <% include ../static/footer.ejs %>
+
+  <% } else if (uitleg == "paint") { %>
+
+    <h1>Paint</h1>
+    <p>
+      Een van de 'applicaties' van onze website is een versimpelde versie van paint. Onze versie maakt gebruikt van een 32x32, een 24x24 en een 16x16
+      groot oppervlak. De grootte van dit oppervlak hangt af van de grootte van je scherm. Verder kan je gebruik maken van 8 kleuren om je mooie creaties
+      op het doek te toveren.
+
+      <h4>Het oppervlak</h4>
+      Laten we begginnen bij het oppervlak, deze bestaat uit 1024 divs met <code>class="tile"</code>. Hierdoor kunnen alle vakjes makkelijk aanpassen in css.
+      
 
   <% } else { %>
       Er is geen informatie beschikbaar over dit onderwerp

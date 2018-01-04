@@ -65,6 +65,10 @@ app.get('/uitleg/:ondw', function (req, res) {
   res.render('uitleg.html', {uitleg: req.params.ondw})
 })
 
+app.get('/paint', function (req, res) {
+  res.render('paint.html')
+})
+
 app.get('/uren/:user', function (req, res) {
 	conn.query('SELECT * FROM uren WHERE username = ? ORDER BY datum', req.params.user, function(err, result) {
 		var tInfo = new Object();
@@ -126,10 +130,6 @@ app.get('/login/new', function (req, res) {
 app.get('/logout', function(req, res) {
 	req.session.destroy();
 	res.redirect('/')
-})
-
-app.get('/paint', function (req, res) {
-  res.render('paint.html')
 })
 
 // Posts

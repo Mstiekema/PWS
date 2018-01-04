@@ -2,7 +2,9 @@
 <div class="main">
 
 <h1>Paint</h1>
-<div>
+<p>Dit is onze simpele versie van paint met acht verschillende kleuren die je
+  kan gebruiken om een 32x32 (24x24 of 16x16 voor kleinere schermen) groot oppervlak in te kleuren.</p>
+<div class="containerPaint">
   <div class="paint">
     <div class="doek">
       <% include ../static/paint.ejs %>
@@ -19,130 +21,5 @@
       <button id="reset">Reset</button>
   </div>
 </div>
-<br><br>
 <% include ../static/footer.ejs %>
 </div>
-
-<script>
-var raster = document.getElementById("raster")
-var reset = document.getElementById("reset")
-var zwart = document.getElementById("zwart")
-var wit = document.getElementById("wit")
-var rood = document.getElementById("rood")
-var oranje = document.getElementById("oranje")
-var geel = document.getElementById("geel")
-var groen = document.getElementById("groen")
-var blauw = document.getElementById("blauw")
-var paars = document.getElementById("paars")
-var down = false
-
- raster.onclick = function() {
-  $(".tile").toggleClass("raster");
-   $(".rasterButton").toggleClass("paintActive");
-  };
-
- reset.onclick = function() {
-  $(".tile").css("background-color", "white");
-  };
-
-$(document).mousedown(function() {
-  down = true;
-}).mouseup(function() {
-  down = false;
-});
-
- zwart.onclick = function() {
-   $(".tile").mouseover(function(){
-     if(down) {
-       $(this).css("background-color", "black");
-     } else { $(".tile").mousedown(function(){
-       $(this).css("background-color", "black");
-      });
-     };
-   });
-  }
-
-  wit.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "white");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "white");
-       });
-      };
-    });
-  }
-
-  rood.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "red");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "red");
-       });
-      };
-    });
-  }
-
-  oranje.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "orange");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "orange");
-       });
-      };
-    });
-  }
-
-  geel.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "yellow");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "yellow");
-       });
-      };
-    });
-  }
-
-  groen.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "green");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "green");
-       });
-      };
-    });
-  }
-
-  blauw.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "blue");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "blue");
-       });
-      };
-    });
-  }
-
-  paars.onclick = function() {
-    $(".tile").mouseover(function(){
-      if(down){
-        $(this).css("background-color", "purple");
-      } else { $(".tile").mousedown(function(){
-        $(this).css("background-color", "purple");
-       });
-      };
-    });
-  }
-
-  $(document).ready(function(){
-    $(".kleur").click(function(){
-      $(".kleur").removeClass("paintActive");
-        $(this).addClass("paintActive");
-    });
-  });
-</script>
