@@ -152,8 +152,81 @@ var conn = mysql.createConnection({
       op het doek te toveren.
 
       <h4>Het oppervlak</h4>
-      Laten we begginnen bij het oppervlak, deze bestaat uit 1024 divs met <code>class="tile"</code>. Hierdoor kunnen alle vakjes makkelijk aanpassen in css.
-      
+      Laten we begginnen bij het oppervlak, deze bestaat uit 1024 divs met <code>class="tile"</code>. Hierdoor kunnen we alle vakjes makkelijk aanpassen in css
+      en makkelijk targeten in javascipt. Zo bepalen we de eigenschappen van elk vakje in een paar regels code.
+      <br><br>
+
+      <h4>Het raster</h4>
+      Het raster wordt in geschakeld wanneer je op de desbetreffende rasterknop klikt. In javascript staan de volgende regels code.<br>
+<pre class="code">
+$("#raster").click(function() {
+  $(".tile").toggleClass("raster");
+    $(".rasterButton").toggleClass("paintActive");
+});
+</pre><br>
+      De code zegt wanneer iemand de knop met <code>id="raster"</code> klikt dan wordt een functie ingeschakeld die zegt dat elke element met <code>class="tile"</code>
+      de class raster erbij krijgt. In css staat dan dat de class raster een border heeft, waardoor het raster tevoorschijn komt. De laastste regel code heeft hetzelfde principe
+      ,alleen beïnvloed deze de knop van het raster. De border van de knop wordt veranderd naar <code>inset</code> i.p.v. <code>outset</code>, waardoor het lijkt alsof de knop
+      ingedrukt is.
+      <br><br>
+
+      <h4>De kleuren</h4>
+      De kleuren vormen de basis van het hele paint 'programma', je kan kiezen uit acht verschillende kleuren om een kunstwerk te maken. Elke kleur wordt geactiveerd met een bepaalde
+      knop net zoals het raster. Alleen er zit wat meer code achter de knop van een kleur dan die van het raster. <br>
+<pre class="code">
+var down;
+
+$(document).mousedown(function() {
+ down = true;
+}).mouseup(function() {
+ down = false;
+});
+
+$("#zwart").click(function() {
+  $(".tile").mouseover(function(){
+    if(down) {
+      $(this).css("background-color", "black");
+    } else { $(".tile").mousedown(function(){
+      $(this).css("background-color", "black");
+     });
+    };
+  });
+});
+</pre><br>
+      Op de eerste regel wordt een variabele benoemd genaamd <code>down</code>, in het volgende stukje code wordt deze variabele gebruikt. De code checkt of je muis ingeclickt is of niet
+      met <code>.mousedown</code> voor ingeclickt en <code>.mouseup</code> voor het tegenovergestelde. Als je de muisknop ingedrukt houdt dan wordt de variabele <code>down</code> waar en andersom
+      als je muisknop niet ingedrukt is. Dan komen we bij het belangrijkste stukje code, als eerste wordt er gecontroleerd of je de knop van de kleur ingedrukt hebt, in dit geval is dat voor
+      de kleur zwart. Hierna wordt er gecontroleerd of je jouw muis boven een van de schildervakjes hebt met <code>class="tile"</code>. Als dat klopt dan is er een <code>if</code> en <code>else</code>
+      fucntie. Deze checkt of de variabele <code>down</code> waar is of niet, oftewel of je de muisknop ingedrukt houdt of niet. Is dit het geval dan veranderd de <code>background-color</code>
+      van het vakje naar <code>black</code>, het vakje wordt zwart. Het probleem met deze manier is alleen dat het eerste vakje wat je op clickt niet zwart wordt, daar is de <code>else</code> functie voor.
+      In de else fucntie wordt nog eens gecontroleerd of je de muisknop ingedrukt houdt boven een vakje met <code>$(".tile").mousedown</code> en als dat het geval is dan wordt het desbetreffend vakje zwart.
+      <br><br>
+
+      <h4>De resetknop</h4>
+      Als je niet tevreden bent met je tekening dan kan je altijd opnieuw beginnen met de resetknop. Deze zorgt ervoor dat alle vakjes weer naar hun oorspronkelijke witte kleur terugveranderen.<br>
+<pre class="code">
+$("#reset").click(function() {
+ $(".tile").css("background-color", "white");
+});
+</pre><br>
+      In deze code wordt er weer gecontroleerd of er op de knop geclikt wordt en als dat het geval is dan veranderd hij van alle vakjes de <code>background-color</code> naar <code>white</code>, waardoor
+      elk vakje weer wit wordt.
+      <br><br>
+
+      <h4>Het dynamische gedeelte</h4>
+      Wellicht dat je het zelf nog niet ontdekt had, maar als je het scherm kleiner maakt dan veranderd de verhouding van het doek en de grootte van de knoppen. Dit komt door de volgende regel code in css.
+<pre class="code">
+@media only screen and (max-width: 400px){
+    .tile{height: 6.25%; width: 6.25%;}
+    .kleur{height: 20px; width: 20px;}
+    #raster, #reset{height: 20px; font-size: 11px;}
+}
+</pre><br>
+      In deze code staat dat als het scherm 400px of kleiner is, dan wordt de breedte en de lengte van de vakjes 6.25% van het doek, oftewel 1/16 deel van het doek, het oppervlak wordt dan 16x16. Bovendien
+      veranderen de hoogte en lengte van de knoppen van de kleuren. Bij de raster- en resetknop wordt alleen de lengte en de grootte van de letters aangepast, de breedte veranderd dan automatisch mee.
+
+
+  <% include ../static/footer.ejs %>
 
   <% } else { %>
       Er is geen informatie beschikbaar over dit onderwerp

@@ -26,9 +26,8 @@ $(document).ready(function() {
   }
 
 // popup info ?
-  $("#info").on("click", function() {
-    var info = document.getElementById("infoId");
-    info.classList.toggle("show");
+  $(".info").on("click", function() {
+    $(this).children(".infoText").toggleClass("show");
   });
 
   //pop up van code vensters
@@ -53,7 +52,7 @@ gebruiken. zie bijvoorbeeld popup info hierboven.
   } */
 
 // Paint
-  var down = false;
+  var down;
 
   $("#raster").click(function() {
    $(".tile").toggleClass("raster");
@@ -162,5 +161,29 @@ gebruiken. zie bijvoorbeeld popup info hierboven.
     $(".kleur").removeClass("paintActive");
       $(this).addClass("paintActive");
      });
+
+  var hover;
+
+  $(".kleur").mouseenter(function(){
+    hover = true
+  }).mouseout(function(){
+    hover = false
+  });
+
+  $(".kleur").hover(function(){
+    $(".kleur").delay(2500)
+               .queue(function(){
+                 if (hover) {
+                   $("#kleurId").addClass("show");
+                   $(".kleur").dequeue();
+                 }else {
+                   $(".kleur").dequeue();
+                 }
+               });
+  });
+  $(".kleur").mouseout(function(){
+    $("#kleurId").removeClass("show");
+  });
+
 
 });
