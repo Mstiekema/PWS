@@ -37,15 +37,21 @@ $(document).ready(function() {
   var uiterlijk = document.getElementsByClassName("popUp")[0];
   var span = document.getElementsByClassName("close")[0];
 
-  btn.addEventListener('click', openModal, countChar);
+  try {
+  btn.addEventListener('click', openModal);
+  } catch (err) {console.log("dit bestaat niet op deze pagina")};
   try {
   btn1.addEventListener('click', openModal);
   } catch (err) {console.log("dit bestaat niet op deze pagina")};
   try {
   btn2.addEventListener('click', openModal);
   } catch (err) {console.log("dit bestaat niet op deze pagina")};
+  try {
   span.addEventListener('click', closeModal);
+  } catch (err) {console.log("dit bestaat niet op deze pagina")};
+  try {
   window.addEventListener('click', clickOutside);
+  } catch (err) {console.log("dit bestaat niet op deze pagina")};
 
   function openModal() {
     uiterlijk.style.display = 'block';
@@ -61,6 +67,18 @@ $(document).ready(function() {
     uiterlijk.style.display = 'none';
     }
   }
+<<<<<<< HEAD
+=======
+  close.onclick = function() {
+      popUp.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+      if (event.target == span) {
+          popUp.style.display = "none";
+      }
+  }
+>>>>>>> fa1d1177731ebbe4edf6e62986154aaa06163eab
 
 // Paint
   var down;
