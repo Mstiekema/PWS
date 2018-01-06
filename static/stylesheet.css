@@ -162,8 +162,8 @@ html {
 }
 
 .popUp {
-    text-align: center;
     display: none;
+    text-align: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -176,11 +176,11 @@ html {
 }
 
 .popUp-content {
-    background-color: #fefefe;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
+    background-color: transparent;
+    width: 24%;
+    position: fixed;
+    top: 35%;
+    left: 35%;
 
 }
 
@@ -188,17 +188,35 @@ html {
     color: #aaa;
     float: right;
     font-size: 28px;
-    font-weight: bold;
+    position: sticky;
+
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.codeId:hover{
+    cursor: zoom-in;
 }
 
-#codeId {
+.codeIdone:hover{
+    cursor: zoom-in;
+}
+
+.codeIdtwo:hover{
+    cursor: zoom-in;
+}
+
+.codeId {
+  text-align: left;
+  background: transparent;
+  border: none !important;
+}
+
+.codeIdone {
+  text-align: left;
+  background: transparent;
+  border: none !important;
+}
+
+.codeIdtwo {
   text-align: left;
   background: transparent;
   border: none !important;

@@ -25,22 +25,35 @@ $(document).ready(function() {
     }
   }
   //pop up van code vensters
-  //var modal = document.getElementById('myPop');
-//  var btn = document.getElementsById("codeId");
+  var btn = document.getElementsByClassName("codeId")[0];
+  var btn1 = document.getElementsByClassName("codeIdone")[0];
+  var btn2 = document.getElementsByClassName("codeIdtwo")[0];
+  var uiterlijk = document.getElementsByClassName("popUp")[0];
   var span = document.getElementsByClassName("close")[0];
-  var popUp = document.getElementsByClassName("popUp")[0];
-  codeId.onclick = function() {
-      popUp.style.display = "block";
+
+  btn.addEventListener('click', openModal, countChar);
+  try {
+  btn1.addEventListener('click', openModal);
+  } catch (err) {console.log("dit bestaat niet op deze pagina")};
+  try {
+  btn2.addEventListener('click', openModal);
+  } catch (err) {console.log("dit bestaat niet op deze pagina")};
+  span.addEventListener('click', closeModal);
+  window.addEventListener('click', clickOutside);
+
+  function openModal() {
+    uiterlijk.style.display = 'block';
+    console.log("Dit werkt");
   }
 
-  close.onclick = function() {
-      popUp.style.display = "none";
+  function closeModal() {
+    uiterlijk.style.display = 'none';
   }
 
-  window.onclick = function(event) {
-      if (event.target == span) {
-          popUp.style.display = "none";
-      }
+  function clickOutside() {
+    if (event.target == uiterlijk){
+    uiterlijk.style.display = 'none';
+    }
   }
 
 });

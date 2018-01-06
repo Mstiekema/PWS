@@ -1,8 +1,9 @@
 <% include ../static/header.ejs %>
+
 <div class="popUp">
 
-<div class="javaPop-content">
-  <span class="close">&times;</span><br><br><br><br><br><br><br><br>
+<div class="popUp-content">
+  <span class="close" >&times;</span>
   <pre class="code" style="text-align: left;">
   $.ajax({
     url: '/login',
@@ -21,7 +22,6 @@
   });
   </pre>
 </div>
-
 </div>
 <div class="main">
   <% if (uitleg == "login") { %>
@@ -34,7 +34,7 @@
         Als eerst geven we aan dat wat input tekst is in plaats van een getal of iets anders. Door de "name" eigenschap van de input te gebruiken kan later de input gevonden worden door JavaScript. Als laatste kan je met de "placeholder" de input een voorbeeld tekst geven. Je kan ook met CSS de inputs en knoppen er mooier uit laten zien, maar dat is voor nu niet van belang.<br><br>
         <h4>JavaScript</h4>
         Om nu je gebruikersnaam (en wachtwoord) op te halen en wat mee te doen heb je dus JS nodig. Dit is te doen door alleen JavaScript zelf te gebruiken, maar om het makkelijker en overzichtelijker te maken gebruiken wij JQuery wat wij importeren in de header. Als eerst voegen wij toe een button en key listener toe. Hiermee luisteren we naar het indrukken van de enter knop of het indrukken van de inlog knop op de pagina. Zodra je dit doet, activeer je deze code:<br>
-<button id="codeId"><pre class="code">
+<button class="codeId"><pre class="code">
 $.ajax({
   url: '/login',
   data: {
@@ -54,7 +54,7 @@ $.ajax({
         De ajax function wordt gebruikt om een request naar de server te sturen. Dit kan een <code>POST</code> of een <code>GET</code> request zijn. Voor het login systeem gebruiken wij een post request om dus informatie naar de server te sturen. Om dit te doen moeten er nog wel een aantal dingen gedaan worden. Als eerst geven we aan via welk adres we de request doen, wat in dit geval <code>/login</code> is. De <code>data</code> tag geeft weer welke gegevens wij naar de server sturen. Als laatste geven we ook nog aan wat we willen doen als de request succesvol is of niet. Dit gebeurd door de <code>success</code> en <code>error</code> function te vermelden. In ons gevallen loggen wij gewoon de login data en verwijzen we naar de home page als je succesvol bent ingelogd. Als dit niet het geval is, loggen we in de console wat er mis is gegaan.<br><br>
         <h4>Server side</h4>
         Op de server moeten we als eerste weer een listener toevoegen om te luisteren naar de <code>POST</code> request van de login pagina. Dit doen we op dezelfde manier als dat we luisteren naar een call van een webpagina.<br>
-<pre class="code">
+<button class="codeIdone"><pre class="code">
 app.post('/login', function(req, res) {
   conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
     if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct')
@@ -67,7 +67,7 @@ app.post('/login', function(req, res) {
     }
   })
 })
-</pre><br>
+</pre></button><br>
         Als eerste zeggen we dat we voor deze functie luisteren naar post requests op de <code>/login</code> url. Daarna maken we een database query waar we zoeken of de gebruikersnaam bestaat in onze database. Zo niet, dan sturen we meteen met <code>res.status(400).send('')</code> een error terug naar de gebruiker. Als de gebruiker wel bestaat, dan controleren we of het ingevoerde wachtwoord klopt met wat er ook in de database staat. Als dat niet zo is sturen we weer een error terug. Als alles wel klopt, dan worden je gegevens opgeslagen als cookie in de server zelf. Hierdoor kan je browser dan later deze opgraven zodat je ingelogd blijft ookal verlaat je de website. Zodra dit is gedaan sturen we via <code>res.status(200).send('')</code> een bevestiging naar de gebruiker zodat deze weet dat hij is ingelogd.
       </p>
 
@@ -81,26 +81,26 @@ app.post('/login', function(req, res) {
       Er zijn veel manieren om een website te bouwen. Voor ons PWS hebben we besloten om de server code te schrijven in de taal <a href="https://nodejs.org/en/" target="_blank">Node.js</a>. Dit komt omdat het redelijk eenvoudig is en steeds vaker wordt gebruikt voor het bouwen voor website.
       <h4>Locaties bepalen met Express</h4>
       Als je op een website naar een bepaalde url gaat, zie je altijd weer iets anders. Dit komt omdat elke URL door de server op een andere manier wordt behandeld. Hier zie je een voorbeeld van wat er gebeurd als je naar de <code>'/'</code> URL gaat.<br>
-<pre class="code">
+<button class="codeId"><pre class="code">
 app.get('/', function (req, res) {
   res.render('index.html')
 })
-</pre><br>
+</pre></button><br>
       <code>app.get</code> is een functie die bij het laden van de pagina controleert naar welke URL je gaat. Hier reageert het op de <code>'/'</code> URL. Daarna halen we <code>index.html</code> uit de templates folder en sturen we dat naar de gebruiker toe. Dit is de meest simpelste manier om een pagina te laden.<br><br>
       <h4>Templates met EJS</h4>
       Je kan echter ook nog meer doen. Zo kan je samen met Express en EJS extra variabelen en argumenten meesturen.<br>
-<pre class="code">
+<button class="codeIdone"><pre class="code">
 app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
-</pre><br>
+</pre></button><br>
       Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er vanalles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
       Als je alleen de waarde wilt neerzetten op de pagina kan je gewoon heel simpel <code>&lt;&#37;&#61; zoek &#37;&gt;</code> gebruiken. Dit print gewoon de waarde uit op de pagin. Als je er echter wat mee wil doen, bijvoorbeeld een for loop maken als je een array meestuurd, dan kan dat niet op deze manier.<br>
-<pre class="code">
+<button class="codeIdtwo"><pre class="code">
 &lt;&#37; res.forEach(function(res) { &#37;&gt;
   &lt;b&gt;&lt;&#37;&#61;= res.waarde &#37;&gt;&lt;/b&gt;
 &lt;&#37; }) &#37;&gt;
-</pre><br>
+</pre></button><br>
       <code>res</code> is in dit geval een array met meerdere arrays erin. Van elke array pakken we de minuten waarde en printen we deze in bold uit op de pagina.<br>
       Het verschil tussen de twee manieren, is het gebruik van de <code>=</code>. Als je <code>&lt;&#37;&#61; &#37;&gt;</code> gebruikt, dan print je gewoon de waarde uit. Als je <code>&lt;&#37; &#37;&gt;</code> gebruikt kan je een if statement, for loop of iets anders doen.<br><br>
       Wat je ook kan doen met EJS het in importeren van andere bestanden. Hier maken wij ook gebruik van, omdat de header en menu altijd hetzelfde zijn op elke pagina. We hebben daarom een header bestand gemaakt en importeren wij deze aan het begin van elke HTML template met <code>&lt;&#37; include ../static/header.ejs &#37;&gt;</code>. Door dit te doen besparen wij op elke HTML pagina een tientallen lines. Dit maakt het gehele project voor ons dus veel overzichtelijker.
@@ -113,10 +113,10 @@ app.get('/zoek/:zoek', function (req, res) {
       <p>
         Achter een website zit vaak ook een database. In een database wordt bepaalde informatie opgeslagen die weer kan worden opgehaald. In een database kan bijvoorbeeld login informatie opgeslagen worden. Er zijn verschillende soorten databases die je kan gebruiken en ieder heeft zo zijn eigen voordelen. Wij zelf gebruiken MySQL omdat deze het meest bekend is en veel mogelijkheden biedt.<br>
         De basis van de meeste databases zijn dat ze bestaan uit tables gevuld met rows van informatie. Deze tables kan je zelf aanmaken en ook welke waarden je dan kan invullen. Voor een table met login informatie kan bijvoorbeeld de kolommen <code>Username</code>, <code>Password</code> en <code>Email</code> bevatten.<br>
-        
+
         <h4>Verbinding maken</h4>
         Je kan niet zomaar op de website zelf verbinding maken met de database, omdat je dan kwetsbare informatie zomaar vrij kan geven. Eerst maak je op de server een verbinding met de database door het gebruik van de MySQL package in Node.JS.<br>
-<pre class="code">
+<button class="codeId"><pre class="code">
 var conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -124,13 +124,13 @@ var conn = mysql.createConnection({
   database: 'pws',
   port: 3306
 });
-</pre><br>
+</pre></button><br>
         Zodra er een verbinding is met de database, kan er vanalles mee gedaan worden. In het <code>conn</code> variable geven we aan dat we een verbinding maken met MySQL als een bepaalde user en geven we ook meteen aan met welke van de databases je iets wil doen. Zodra dit is gedaan, kan je met met <code>conn.query('STATEMENT', function(err, result) {})</code> informatie ophalen, toevoegen of updaten in een bepaalde table.<br><br>
-        
+
         <h4>SELECT</h4>
         Als je informatie wil ophalen uit een table, kan je dat doen met de select statement. Door <code>SELECT * FROM userinfo WHERE username = "Mstiekema"</code> te gebruiken als statement kan je alle informatie ophalen uit de table <code>userinfo</code> waar de naam van de gebruiker Mstiekema is. Door <code>*</code> te gebruiken zeggen we tegen de database dat we alle informatie uit een table willen halen. Als je alleen bepaalde kolommen wil ophalen, kan dat door <code>*</code> te vervangen met <code>password, username</code>. Hierdoor haal je alleen van de gebruiker het wachtwoord en de gebruikersnaam op en laat de rest van de informatie met rust.
         <br><br>
-        
+
         <h4>INSERT</h4>
         De insert statement doet wat het zelf al zegt. Als je deze uitvoert en informatie erbij leverd, dan kan je een row toevoegen in de table. Een voorbeeld hiervan is <code>INSERT INTO userinfo set "object"</code>. Hier zeggen we dat we een object toevoegen aan de table <code>userinfo</code>. Het object wat je toegevoegd moet wel kloppen met de kolommen van je table, anders krijg je een error terug gestuurd na het proberen van invoegen.<br><br>
 
