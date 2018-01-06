@@ -67,18 +67,6 @@ $(document).ready(function() {
     uiterlijk.style.display = 'none';
     }
   }
-<<<<<<< HEAD
-=======
-  close.onclick = function() {
-      popUp.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-      if (event.target == span) {
-          popUp.style.display = "none";
-      }
-  }
->>>>>>> fa1d1177731ebbe4edf6e62986154aaa06163eab
 
 // Paint
   var down;
