@@ -359,6 +359,7 @@ html {
   border: 2px outset lightGrey;
   border-radius: 5px;
   cursor: pointer;
+  padding: 0 5px;
 }
 
 .kleur {
@@ -390,7 +391,7 @@ html {
 
 @media only screen and (max-width: 780px){
   #rasterId{left: -20px;}
-  #resetId{left: -98px;}
+  #resetId{left: -102px;}
 }
 
 @media only screen and (max-width: 695px){
@@ -400,7 +401,7 @@ html {
     #raster, #reset{height: 26px; font-size: 14px;}
     .paintPopup{left: -84px; width: 220px; font-size: 12px;}
     #rasterId{width: 175px;}
-    #resetId{left:-80px; width: 150px;}
+    #resetId{left:-85px; width: 150px;}
 }
 
 @media only screen and (max-width: 500px){
@@ -409,7 +410,7 @@ html {
     #raster, #reset{height: 22px; font-size: 12px;}
     .paintPopup{top: -28px; left: -75px; width: 195px; font-size: 11px;}
     #rasterId{width: 160px;}
-    #resetId{width: 138px;}
+    #resetId{left: -78px; width: 138px;}
 }
 
 @media only screen and (max-width: 400px){
@@ -417,6 +418,7 @@ html {
     .kleur{height: 20px; width: 20px;}
     #raster, #reset{height: 20px; font-size: 11px;}
     .paintPopup{left: -77px;}
+    #resetId{left: -80px;}
 }
 
 #reset {float: right;}

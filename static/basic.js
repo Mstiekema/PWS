@@ -36,7 +36,6 @@ $(document).ready(function() {
   var btn2 = document.getElementsByClassName("codeIdtwo")[0];
   var uiterlijk = document.getElementsByClassName("popUp")[0];
   var span = document.getElementsByClassName("close")[0];
-<<<<<<< HEAD
 
   btn.addEventListener('click', openModal, countChar);
   try {
@@ -61,20 +60,6 @@ $(document).ready(function() {
     if (event.target == uiterlijk){
     uiterlijk.style.display = 'none';
     }
-  }
-=======
-  var popUp = document.getElementsByClassName("popUp")[0];
-  codeId.onclick = function() {
-      popUp.style.display = "block";
-  }
-  close.onclick = function() {
-      popUp.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-      if (event.target == span) {
-          popUp.style.display = "none";
-      }
   }
 
 // Paint
@@ -207,13 +192,11 @@ $(document).ready(function() {
                  }
                });
   });
+
   $(".kleur").mouseout(function(){
     $("#kleurId").removeClass("show");
   });
 
-<<<<<<< HEAD
->>>>>>> 36e9d51fc27b95f1f8d41a2b319efb9fa639a32e
-=======
   var hoverRaster;
 
   $("#raster").mouseenter(function(){
@@ -259,6 +242,5 @@ $(document).ready(function() {
   $("#reset").mouseout(function(){
     $("#resetId").removeClass("show");
   });
->>>>>>> 2be243b4b0394068701a8d637cdbddf4c4134c27
 
 });
