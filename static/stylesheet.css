@@ -93,12 +93,46 @@ html {
   width: 80%;
 }
 
+/* Info popup*/
+ .info {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   padding: 7px;
+   margin: 8px 0;
+   width: 40px;
+   height: 40px;
+   background-color: #ff3333;
+   color: white;
+   text-align: center;
+   border-radius: 4px;
+ }
+
+ .infoText {
+   visibility: hidden;
+   padding: 8px;
+   position: absolute;
+   width: 250px;
+   margin-left: -273px;
+   margin-top: -55px;
+   color: black;
+   background-color: white;
+   text-align: center;
+   border-radius: 4px;
+   border: 1px solid #013b51;
+   font-size: 14px;
+ }
+
 .responsive{
   padding: 0px 6px;
      float: left;
      width: 24.9999%;
-     margin: 10px 0px;
+     margin: 8px 0px;
      cursor: pointer;
+}
+
+.bubble{
+  margin-left: 25%;
 }
 
 @media only screen and (max-width: 1200px){
@@ -106,6 +140,7 @@ html {
         width: 33.3333%;
         margin: 6px 0;
     }
+    .info{margin: 6px 0px;}
 }
 
 @media only screen and (max-width: 900px){
@@ -120,41 +155,14 @@ html {
         width: 100%;
         margin: 6px 0;
     }
+    .info{width: 25px; height: 25px; font-size: 12px; padding: 3px;}
+    .infoText{margin-left: -235px; margin-top:-43px;font-size: 12px; width: 220px; padding: 4px;}
 }
 
 .boxMain:hover {
   border: 2px solid #025472;
   box-shadow: 0 4px 8px 0 lightGrey, 0 6px 20px 0 lightGrey;
 }
-
- /* Info popup*/
-  .info {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    padding: 7px;
-    width: 40px;
-    height: 40px;
-    background-color: #ff3333;
-    color: white;
-    text-align: center;
-    border-radius: 4px;
-  }
-
-  .infoText {
-    visibility: hidden;
-    padding: 8px;
-    position: absolute;
-    width: 250px;
-    margin-left: -273px;
-    margin-top: -55px;
-    color: black;
-    background-color: white;
-    text-align: center;
-    border-radius: 4px;
-    border: 1px solid #013b51;
-    font-size: 14px;
-  }
 
 /* footer */
 .footer{

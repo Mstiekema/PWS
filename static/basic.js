@@ -188,7 +188,7 @@ $(document).ready(function() {
   });
 
   $(".kleur").hover(function(){
-    $(".kleur").delay(2500)
+    $(".kleur").delay(1500)
                .queue(function(){
                  if (hoverKleur) {
                    $("#kleurId").addClass("show");
@@ -212,7 +212,7 @@ $(document).ready(function() {
   });
 
   $("#raster").hover(function(){
-    $("#raster").delay(2500)
+    $("#raster").delay(1500)
                .queue(function(){
                  if (hoverRaster) {
                    $("#rasterId").addClass("show");
@@ -235,7 +235,7 @@ $(document).ready(function() {
   });
 
   $("#reset").hover(function(){
-    $("#reset").delay(2500)
+    $("#reset").delay(1500)
                .queue(function(){
                  if (hoverReset) {
                    $("#resetId").addClass("show");
