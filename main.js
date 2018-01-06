@@ -65,6 +65,10 @@ app.get('/uitleg/:ondw', function (req, res) {
   res.render('uitleg.html', {uitleg: req.params.ondw})
 })
 
+app.get('/paint', function (req, res) {
+  res.render('paint.html')
+})
+
 app.get('/uren/:user', function (req, res) {
 	conn.query('SELECT * FROM uren WHERE username = ? ORDER BY datum', req.params.user, function(err, result) {
 		var tInfo = new Object();
@@ -131,20 +135,20 @@ app.get('/logout', function(req, res) {
 // Posts
 app.post('/login', function(req, res) {
 	conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
-		if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct') 
+		if (err || result[0] == undefined) return res.status(400).send('Username en/of wachtwoord is niet correct')
 		if (req.body.password == result[0].password) {
 			req.session.user = req.body
-			req.session.logged = true			
+			req.session.logged = true
 			res.status(200).send('Succesvol ingelogd')
-		}	else { 
-			res.status(400).send('Incorrect wachtwoord') 
+		}	else {
+			res.status(400).send('Incorrect wachtwoord')
 		}
 	})
 })
 
 app.post('/login/new', function(req, res) {
 	conn.query('SELECT * FROM userinfo WHERE username = ?', req.body.username, function(err, result) {
-		if (result[0] != undefined) return res.status(400).send('Username bestaat al in de database') 
+		if (result[0] != undefined) return res.status(400).send('Username bestaat al in de database')
 		conn.query('INSERT INTO userinfo set ?', req.body, function(err, result) {
 			req.session.user = req.body
 			req.session.logged = true

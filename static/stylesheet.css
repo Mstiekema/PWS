@@ -8,6 +8,11 @@ html {
   margin-top: 10px;
   padding: 0px 15px 0px 15px;
 }
+
+.navbar-brand, .navbar-toggler {
+  cursor: pointer;
+}
+
 #welkom {
   padding-top: 7px;
   padding-left: 5px;
@@ -21,8 +26,8 @@ html {
 /* CSS home page */
 .container {
   position: relative;
-  background-color: #ffffff;
   width: 100%;
+  padding-bottom: 8px;
 }
 
 #mainHeader {
@@ -30,7 +35,7 @@ html {
   left: 5%;
   top: 50%;
   font-size: 2.4vw;
-  color: #00323d;
+  color: #013b51;
 }
 
 #backgroundImg {
@@ -40,9 +45,44 @@ html {
   margin: auto;
 }
 
+.balk {
+  text-align: center;
+  border-top: 1px solid #216983;
+  border-bottom: 2px solid #216983;
+  margin-bottom: 5px;
+}
+
+.balk h2 {
+  color: #013b51;
+}
+
 .boxMain {
-  padding: 10px;
-  border: 1px solid grey;
+  padding: 10px 10px 0px 10px;
+  position: relative;
+  border: 2px solid #013b51;
+  border-radius: 10px;
+  width: 100%;
+  height: 315px;
+  max-height: 315px;
+  overflow: hidden;
+}
+
+.boxMain:after{
+  content: ' ';
+  display: block;
+  background-color: white;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.boxMain img {
+  display: block;
+  margin: auto;
+  width: auto;
+  height: 100px;
+  max-width: 100%;
 }
 
 .columnSide {
@@ -58,6 +98,7 @@ html {
      float: left;
      width: 24.9999%;
      margin: 10px 0px;
+     cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px){
@@ -82,7 +123,68 @@ html {
 }
 
 .boxMain:hover {
-  border: 1px solid #595959;
+  border: 2px solid #025472;
+  box-shadow: 0 4px 8px 0 lightGrey, 0 6px 20px 0 lightGrey;
+}
+
+ /* Info popup*/
+  .info {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    background-color: #ff3333;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .infoText {
+    visibility: hidden;
+    padding: 8px;
+    position: absolute;
+    width: 250px;
+    margin-left: -273px;
+    margin-top: -55px;
+    color: black;
+    background-color: white;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #013b51;
+    font-size: 14px;
+  }
+
+/* footer */
+.footer{
+  width: 100%;
+  height: 120px;
+  margin-top: 8px;
+  background-color: #013b51;
+}
+
+.footerLeft, .footerMiddle, .footerRight {
+  float: left;
+  width: 33.3333%;
+}
+
+.footerBox {
+  padding: 10px 10px 0px 10px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #013b51;
+  color: white;
+}
+
+.footerMiddle {
+  text-align: center;
+}
+
+.footerRight {
+  text-align: right;
 }
 
 /* CSS voor info.html */
@@ -159,6 +261,7 @@ html {
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
+  margin: 4px 0px;
 }
 
 .popUp {
@@ -221,3 +324,100 @@ html {
   background: transparent;
   border: none !important;
 }
+
+/* CSS voor paint */
+.paint{
+  width: 642px;
+  margin: 0 auto;
+}
+
+.containerPaint{padding-bottom: 40px;}
+
+.doek {
+  height: 640px;
+  width: 640px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.tile {
+  height: 3.125%;
+  width: 3.125%;
+  position: relative;
+  float: left;
+  background-color: white;
+}
+
+.raster {
+  border: 1px solid black;
+}
+
+.kleur, .rasterButton, #reset {
+  position: relative;
+  float: left;
+  margin: 2px;
+  border: 2px outset lightGrey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.kleur {
+  height: 30px;
+  width: 30px;
+}
+
+.paintActive {
+  border: 2px inset lightGrey;
+}
+
+.kleurPopup {
+  visibility: hidden;
+  padding: 2px;
+  position: absolute;
+  width: 250px;
+  top: -32px;
+  left: -95px;
+  color: black;
+  background-color: #fcfd97;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid black;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 695px){
+    .paint{width: 100%;}
+    .doek {height: 87.5vw; width: 100%; overflow: hidden;}
+    .kleur{height: 26px; width: 26px;}
+    #raster, #reset{height: 26px; font-size: 14px;}
+    .kleurPopup{left: -84px; width: 220px; font-size: 12px;}
+}
+
+@media only screen and (max-width: 500px){
+    .tile{height: 4.1666%; width: 4.1666%;}
+    .kleur{height: 22px; width: 22px;}
+    #raster, #reset{height: 22px; font-size: 12px;}
+    .kleurPopup{top: -28px; left: -75px; width: 195px; font-size: 11px;}
+}
+
+@media only screen and (max-width: 400px){
+    .tile{height: 6.25%; width: 6.25%;}
+    .kleur{height: 20px; width: 20px;}
+    #raster, #reset{height: 20px; font-size: 11px;}
+    .kleurPopup{left: -77px;}
+}
+
+#reset {float: right;}
+#zwart {background-color: black;}
+#wit {background-color: white;}
+#rood {background-color: red;}
+#oranje {background-color: orange;}
+#geel {background-color: yellow;}
+#groen {background-color: green;}
+#blauw {background-color: blue;}
+#paars {background-color: purple;}
+
+/* Class show voor popups */
+.show {
+    visibility: visible;
+  }

@@ -1,9 +1,14 @@
 <% include ../static/header.ejs %>
 <div class="main">
 
+
   <div class="container">
-     <img id="backgroundImg" src="http://anshikatechnologies.in/wp-content/uploads/2017/06/Website-Development-Company-in-Indore.jpg" alt="Website">
+     <img id="backgroundImg" src="../backgroundHeader.png" alt="Website">
       <h1 id="mainHeader">Interactieve en Dynamische Website</h1>
+  </div>
+
+  <div class="balk">
+    <h2>Website</h2>
   </div>
 
   <div class="row">
@@ -12,17 +17,22 @@
 
     <div class="columnMiddle">
 
-      <div class="responsive">
+      <div class="responsive" onclick="location.href='/talen';">
         <div class="boxMain">
-          <p>
-            Hoe maak je een dynamische, interactive website? <br>
-            <a href="/talen">Link naar info</a>
-          </p>
+          <img src="../programmeertalen.png" alt="Talen">
+          <div class="boxText">
+            <p>
+            Voor een website gebruik je meer dan een progameertaal. Zo heb je html, css en javascript.
+            Meer weten over hoe deze talen werken en wat hun functie is binnen de website, klik dan hier.
+            </p>
+          </div>
         </div>
       </div>
 
       <div class="responsive" onclick="location.href='https://nl.wikipedia.org/wiki/Banaan_(vrucht)';">
-          <div class="boxMain">
+        <div class="boxMain">
+          <img src="http://www.bodyheal.nl/wp-content/uploads/2014/08/banaan.jpg" alt="Banaan">
+          <div class="boxText">
             <p>
               Een banaan is een langwerpige, licht gebogen vrucht, die afkomstig is van de bananenplant.
               In Suriname spreekt men van bacove als het om de vrucht gaat die rechtstreeks uit de schil
@@ -31,37 +41,73 @@
               Ook in het Afrikaans kent men dat woord, maar dan gespeld als piesang.
             </p>
           </div>
-      </div>
-
-      <div class="responsive" onclick="location.href='https://nl.wikipedia.org/wiki/Banaan_(vrucht)';">
-        <div class="boxMain">
-          <p>
-            Een banaan is een langwerpige, licht gebogen vrucht, die afkomstig is van de bananenplant.
-            In Suriname spreekt men van bacove als het om de vrucht gaat die rechtstreeks uit de schil
-            gegeten kan worden en van banaan als het om groene bakbananen gaat. In Indische gerechten
-            wordt de banaan meestal pisang genoemd, het Maleise woord voor de vrucht.
-            Ook in het Afrikaans kent men dat woord, maar dan gespeld als piesang.
-          </p>
         </div>
       </div>
 
-      <div class="responsive" onclick="location.href='https://nl.wikipedia.org/wiki/Banaan_(vrucht)';">
+      <div class="responsive" onclick="location.href='/paint';">
         <div class="boxMain">
-          <p>
-            Een banaan is een langwerpige, licht gebogen vrucht, die afkomstig is van de bananenplant.
-            In Suriname spreekt men van bacove als het om de vrucht gaat die rechtstreeks uit de schil
-            gegeten kan worden en van banaan als het om groene bakbananen gaat. In Indische gerechten
-            wordt de banaan meestal pisang genoemd, het Maleise woord voor de vrucht.
-            Ook in het Afrikaans kent men dat woord, maar dan gespeld als piesang.
-          </p>
+          <img src="../paint.png" alt="Paint">
+          <div class="boxText">
+            <p>
+              Een van de 'applicaties' van onze website is een versimpelde versie van paint. Onze versie maakt
+              gebruikt van een 32x32, een 24x24 en een 16x16 groot oppervlak. De grootte van dit oppervlak hangt
+              af van de grootte van je scherm. Verder kan je gebruik maken van 8 kleuren om je mooie creaties op
+              het doek te toveren.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="responsive" onclick="location.href='/uitleg/website';">
+          <div class="boxMain">
+            <img src="../websiteinfo.png" alt="Uitleg Website">
+            <div class="boxText">
+              <p>
+                Er zijn veel manieren om een website te bouwen. Voor ons PWS hebben we besloten om de server
+                code te schrijven in de taal Node.js. Dit komt omdat het redelijk eenvoudig is en steeds vaker
+                wordt gebruikt voor het bouwen voor website.
+              </p>
+            </div>
+          </div>
+      </div>
+
+      <div class="responsive" onclick="location.href='/uitleg/database';">
+        <div class="boxMain">
+          <img src="../database.png" alt="Database">
+          <div class="boxText">
+            <p>
+              Achter een website zit vaak ook een database. In een database wordt bepaalde informatie
+              opgeslagen die weer kan worden opgehaald. In een database kan bijvoorbeeld login informatie
+              opgeslagen worden. Er zijn verschillende soorten databases die je kan gebruiken en ieder
+              heeft zo zijn eigen voordelen. Wij zelf gebruiken MySQL omdat deze het meest bekend is en veel
+              mogelijkheden biedt.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="responsive" onclick="location.href='/uitleg/login';">
+        <div class="boxMain">
+          <img src="../login.png" alt="Login">
+          <div class="boxText">
+            <p>
+              Een systeem om in te loggen op een website is een mooi voorbeeld van samenwerking tussen
+              de website en de server erachter.
+            </p>
+          </div>
         </div>
       </div>
 
      </div>
 
      <div class="columnSide">
+       <div class="info">?
+         <span class="infoText">
+           Dit zijn 'bubbles' die je naar verschillende pagina's leiden wanneer je erop klikt. Bovendien, als je er
+           met je muis overheen gaat dan veranderd de kleur van de border en van er komt een kleine schaduw.
+         </span>
+       </div>
      </div>
    </div>
-
- </div>
+<% include ../static/footer.ejs %>
 </div>
