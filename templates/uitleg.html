@@ -93,13 +93,8 @@ app.get('/', function (req, res) {
 app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
-<<<<<<< HEAD
 </pre></button><br>
       Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er vanalles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
-=======
-</pre><br>
-      Eerst luisteren we naar <code>/zoek/:zoek</code>. Wat hier al opvalt is dat <code>:zoek</code> in de URL staat. Hiermee zeggen we dat er van alles op die plek mag staan. Je kan deze waarde oproepen door <code>req.params.zoek</code> te gebruiken. Wat je bijvoorbeeld kan doen, is deze waarde doorsturen naar de website zelf. Dit kan gedaan worden door een object mee te sturen met je template door <code>'zoek.html', {zoek: req.params.zoek}</code> te renderen. Als je het zo meestuurt, gebeurd er in eerste instantie niks met je template. Je moet namlijk in je template zelf ook wat neerzetten voordat je wat kan doen met deze waarde.<br>
->>>>>>> 36e9d51fc27b95f1f8d41a2b319efb9fa639a32e
       Als je alleen de waarde wilt neerzetten op de pagina kan je gewoon heel simpel <code>&lt;&#37;&#61; zoek &#37;&gt;</code> gebruiken. Dit print gewoon de waarde uit op de pagin. Als je er echter wat mee wil doen, bijvoorbeeld een for loop maken als je een array meestuurd, dan kan dat niet op deze manier.<br>
 <button class="codeIdtwo"><pre class="code">
 &lt;&#37; res.forEach(function(res) { &#37;&gt;
@@ -163,12 +158,12 @@ var conn = mysql.createConnection({
 
       <h4>Het raster</h4>
       Het raster wordt in geschakeld wanneer je op de desbetreffende rasterknop klikt. In javascript staan de volgende regels code.<br>
-<pre class="code">
+<button class="codeId"><pre class="code">
 $("#raster").click(function() {
   $(".tile").toggleClass("raster");
     $(".rasterButton").toggleClass("paintActive");
 });
-</pre><br>
+</pre></button><br>
       De code zegt wanneer iemand de knop met <code>id="raster"</code> klikt dan wordt een functie ingeschakeld die zegt dat elke element met <code>class="tile"</code>
       de class raster erbij krijgt. In css staat dan dat de class raster een border heeft, waardoor het raster tevoorschijn komt. De laastste regel code heeft hetzelfde principe
       ,alleen beïnvloed deze de knop van het raster. De border van de knop wordt veranderd naar <code>inset</code> i.p.v. <code>outset</code>, waardoor het lijkt alsof de knop
@@ -220,7 +215,7 @@ $("#reset").click(function() {
 
       <h4>Het dynamische gedeelte</h4>
       Wellicht dat je het zelf nog niet ontdekt had, maar als je het scherm kleiner maakt dan veranderd de verhouding van het doek en de grootte van de knoppen. Dit komt door de volgende regel code in css.
-<pre class="code">
+<br><pre class="code">
 @media only screen and (max-width: 400px){
     .tile{height: 6.25%; width: 6.25%;}
     .kleur{height: 20px; width: 20px;}
