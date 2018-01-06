@@ -64,12 +64,9 @@ $(document).ready(function() {
   }
 =======
   var popUp = document.getElementsByClassName("popUp")[0];
-  /*codeId.onclick = function() {
+  codeId.onclick = function() {
       popUp.style.display = "block";
   }
-Jelte, omdat codeId niet wordt herkend op andere pagina's,
-wordt de code eronder niet gelezen dus je moet even jquery
-gebruiken. zie bijvoorbeeld popup info hierboven.
   close.onclick = function() {
       popUp.style.display = "none";
   }
@@ -78,7 +75,7 @@ gebruiken. zie bijvoorbeeld popup info hierboven.
       if (event.target == span) {
           popUp.style.display = "none";
       }
-  } */
+  }
 
 // Paint
   var down;
@@ -191,18 +188,18 @@ gebruiken. zie bijvoorbeeld popup info hierboven.
       $(this).addClass("paintActive");
      });
 
-  var hover;
+  var hoverKleur;
 
   $(".kleur").mouseenter(function(){
-    hover = true
+    hoverKleur = true
   }).mouseout(function(){
-    hover = false
+    hoverKleur = false
   });
 
   $(".kleur").hover(function(){
     $(".kleur").delay(2500)
                .queue(function(){
-                 if (hover) {
+                 if (hoverKleur) {
                    $("#kleurId").addClass("show");
                    $(".kleur").dequeue();
                  }else {
@@ -214,6 +211,54 @@ gebruiken. zie bijvoorbeeld popup info hierboven.
     $("#kleurId").removeClass("show");
   });
 
+<<<<<<< HEAD
 >>>>>>> 36e9d51fc27b95f1f8d41a2b319efb9fa639a32e
+=======
+  var hoverRaster;
+
+  $("#raster").mouseenter(function(){
+    hoverRaster = true
+  }).mouseout(function(){
+    hoverRaster = false
+  });
+
+  $("#raster").hover(function(){
+    $("#raster").delay(2500)
+               .queue(function(){
+                 if (hoverRaster) {
+                   $("#rasterId").addClass("show");
+                   $("#raster").dequeue();
+                 }else {
+                   $("#raster").dequeue();
+                 }
+               });
+  });
+  $("#raster").mouseout(function(){
+    $("#rasterId").removeClass("show");
+  });
+
+  var hoverReset;
+
+  $("#reset").mouseenter(function(){
+    hoverReset = true
+  }).mouseout(function(){
+    hoverReset = false
+  });
+
+  $("#reset").hover(function(){
+    $("#reset").delay(2500)
+               .queue(function(){
+                 if (hoverReset) {
+                   $("#resetId").addClass("show");
+                   $("#reset").dequeue();
+                 }else {
+                   $("#reset").dequeue();
+                 }
+               });
+  });
+  $("#reset").mouseout(function(){
+    $("#resetId").removeClass("show");
+  });
+>>>>>>> 2be243b4b0394068701a8d637cdbddf4c4134c27
 
 });
