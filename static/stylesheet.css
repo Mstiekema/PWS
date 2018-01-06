@@ -189,10 +189,11 @@ html {
 
 /* CSS voor info.html */
 .block {
-  background-color: #DAE4F0;
-  padding: 20px;
-  margin-top: 15px;
-  border-radius: .5em;
+
+}
+
+.logo {
+
 }
 
 #testHeaders {
