@@ -9,6 +9,28 @@ html {
   padding: 0px 15px 0px 15px;
 }
 
+.iButton {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: none;
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  padding: 0;
+  font-size: 35px;
+  border-radius: 10%;
+  cursor: pointer;
+  content: "ⓘ";
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);}}
+@-moz-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);}}
+@keyframes pulse {to {box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);}}
+
 .navbar-brand, .navbar-toggler {
   cursor: pointer;
 }
@@ -21,6 +43,26 @@ html {
 
 #zoek {
   width: 200px;
+}
+
+#zoekknop {
+  cursor: pointer;
+}
+
+#notifBar {
+  display: none;
+  position: fixed;
+  font-size: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  background: #dff0d8;
+  color: #3c763d;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10;
 }
 
 /* CSS home page */
@@ -36,6 +78,12 @@ html {
   top: 50%;
   font-size: 2.4vw;
   color: #013b51;
+}
+
+#mainInf {
+  position: absolute;
+  top: 5px;
+  left: 20px;
 }
 
 #backgroundImg {
@@ -94,41 +142,48 @@ html {
 }
 
 /* Info popup*/
- .info {
-   position: relative;
-   display: inline-block;
-   cursor: pointer;
-   padding: 7px;
-   margin: 8px 0;
-   width: 40px;
-   height: 40px;
-   background-color: #ff3333;
-   color: white;
-   text-align: center;
-   border-radius: 4px;
- }
 
- .infoText {
-   visibility: hidden;
-   padding: 8px;
-   position: absolute;
-   width: 250px;
-   margin-left: -273px;
-   margin-top: -55px;
-   color: black;
-   background-color: white;
-   text-align: center;
-   border-radius: 4px;
-   border: 1px solid #013b51;
-   font-size: 14px;
- }
+/* This'll need some improvement */
+.infoTextR {
+  visibility: hidden;
+  padding: 10px;
+  position: absolute;
+  width: 230px;
+  cursor: default;
+  white-space: normal;
+  margin-top: 0px;
+  margin-left: 15px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #013b51;
+  font-size: 14px;
+}
+
+.infoTextL {
+  visibility: hidden;
+  padding: 10px;
+  position: absolute;
+  width: 230px;
+  cursor: default;
+  white-space: normal;
+  margin-left: -273px;
+  margin-top: -55px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #013b51;
+  font-size: 14px;
+}
 
 .responsive{
   padding: 0px 6px;
-     float: left;
-     width: 24.9999%;
-     margin: 8px 0px;
-     cursor: pointer;
+  float: left;
+  width: 24.9999%;
+  margin: 8px 0px;
+  cursor: pointer;
 }
 
 .bubble{
@@ -136,27 +191,25 @@ html {
 }
 
 @media only screen and (max-width: 1200px){
-    .responsive{
-        width: 33.3333%;
-        margin: 6px 0;
-    }
-    .info{margin: 6px 0px;}
+  .responsive{
+    width: 33.3333%;
+    margin: 6px 0;
+  }
 }
 
 @media only screen and (max-width: 900px){
-    .responsive{
-        width: 49.9999%;
-        margin: 6px 0;
-    }
+  .responsive{
+    width: 49.9999%;
+    margin: 6px 0;
+  }
 }
 
 @media only screen and (max-width: 500px){
-    .responsive{
-        width: 100%;
-        margin: 6px 0;
-    }
-    .info{width: 25px; height: 25px; font-size: 12px; padding: 3px;}
-    .infoText{margin-left: -235px; margin-top:-43px;font-size: 12px; width: 220px; padding: 4px;}
+  .responsive{
+    width: 100%;
+    margin: 6px 0;
+  }
+  .infoText{margin-left: -235px; margin-top:-43px;font-size: 12px; width: 220px; padding: 4px;}
 }
 
 .boxMain:hover {
@@ -167,7 +220,7 @@ html {
 /* footer */
 .footer{
   width: 100%;
-  height: 120px;
+  height: 40px;
   margin-top: 8px;
   background-color: #013b51;
 }

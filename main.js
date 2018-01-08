@@ -129,7 +129,7 @@ app.get('/login/new', function (req, res) {
 
 app.get('/logout', function(req, res) {
 	req.session.destroy();
-	res.redirect('/')
+	res.redirect('/#logout')
 })
 
 // Posts
@@ -160,9 +160,15 @@ app.post('/login/new', function(req, res) {
 app.post('/uren', function(req, res) {
 	console.log(req.body)
 	req.body.username = req.session.user.username
-	conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
-		res.status(200).send('Uren succesvol toegevoegd aan database.')
-	})
+	var permittedUsers = ["Mstiekema", "Jelte_akker", "JitzeO"]
+	if (permittedUsers.indexOf(req.body.username) != -1) {
+		conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
+			res.status(200).send('Uren succesvol toegevoegd aan database.')
+		})
+	} else {
+		res.status(401).send('Alleen Jelte, Jitze of Merijn mogen uren toevoegen aan de database.')
+	}
+
 })
 
 app.all('*', function(req, res, next) {

@@ -15,7 +15,11 @@ $(document).ready(function() {
   function zoek() {
     var zoek = document.getElementById('zoek').value
     // Controleren of zoek alleen maar spaties bevat
-    if ($.trim(zoek).length == 0) return
+    if ($.trim(zoek).length == 0) {
+      $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append("Je moet eerst wat invoeren voordat je wat zoekt");
+      setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
+      return
+    }
     if (zoek == "jitze's heterosexualiteit") {
       window.location.href = "/jitze";
     } else if (zoek.indexOf("zeep") != -1) {
@@ -24,10 +28,26 @@ $(document).ready(function() {
       window.location.href = "/zoek/" + zoek
     }
   }
+  
+  if (document.URL.indexOf('#logout') != -1) {
+    $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append("Succesvol uitgelogd!");
+    setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
+  } else if (document.URL.indexOf('#loggedin') != -1) {
+    $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").append("Succesvol ingelogd!");
+    setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
+  } else if (document.URL.indexOf('#newacc') != -1) {
+    $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").append("Succesvol een nieuw account aangemaakt!");
+    setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
+  } else if (document.URL.indexOf('/login/new') != -1) {
+    $("#loginBox").css({"height": "305px"})
+  }
 
 // popup info ?
-  $(".info").on("click", function() {
-    $(this).children(".infoText").toggleClass("show");
+  $("#panels").on("click", function() {
+    $(this).children(".infoTextL").toggleClass("show");
+  });
+  $("#mainInf").on("click", function() {
+    $(this).children(".infoTextR").toggleClass("show");
   });
 
   //pop up van code vensters
