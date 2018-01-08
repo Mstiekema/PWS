@@ -24,23 +24,36 @@
   <div class="block">
   <h2>CSS basics</h2>
   <p>
-    CSS is, net zoals HTML, een markup language. Met CSS kan je echter veel meer doen qua het ontwerpen van het uiterlijk van je website. Zo kan je bijvoorbeeld <span id="testCol">tekst een kleur geven</span> of <span id="testFont">spelen met hoe het font eruit ziet</span>.
+    CSS is, net zoals HTML, een markup language. Met CSS kan je echter veel meer doen qua het ontwerpen van het uiterlijk van je website. Zo kan je bijvoorbeeld <span id="testCol">tekst een kleur geven</span> of <span id="testFont">spelen met hoe het font eruit ziet</span>. Dit word gedaan door middel van het aanpassen van bestaande HTML codes: het desbetreffende gedeelte van de HTML code wat je wilt veranderen geef je een id of class.
+    Naar dit id of deze kun je referren in je CSS bestand en de gewilde aanpassingen aanbrengen. Dit kan er dan als volgt uitzien:
+    <pre class="code">.balk {
+      text-align: center;
+      border-top: 1px solid #216983;
+      border-bottom: 2px solid #216983;
+      margin-bottom: 5px;
+    }</pre><br>
+    In het voorbeeld word voor alles met het id <i>balk</i> de tekst gecentreerd en worden er  een border en margin ingesteld, waar je iets meer hieronder over kunt lezen.
     <br><br>
 
-    <b>Stuff</b><br>
-    CSS voorbeelden
+    <b>Positie van elementen</b><br>
+    Belangrijk op een website is de positie van elemten op zichzelf en tegenover een ander. Dit word ook geregeld met CSS, voornamelijk met de begrippen <i>Position, margin, border en padding.</i>
+    Hieronder kun je in een afbeelding zien wat deze gebieden ten opzichte van je element (content) precies inhouden:
   </p>
+  <img src="boxmodel.gif" alt="">
   </div>
-
+  <br>
   <div class="block">
   <h2>JavaScript basics</h2>
   <p>
-    Met JavaScript kan je de pagina op vele manieren beïnvloeden. Zo kan je bepaalde "events" waarnemen zoals een klik op het beeldscherm of als je over een bepaald item heen beweegt met je muis. Je script kan hiermee dan functies activeren, praten met de server of direct dingen veranderen op de pagina zelf
+    Met JavaScript kan je de pagina op vele manieren beïnvloeden. Hierdoor kun je een webpagina interactief maken voor de gebruiker. Zo kan je bepaalde "events" waarnemen zoals een klik op het beeldscherm of als je over een bepaald item heen beweegt met je muis. Je script kan hiermee dan functies activeren, praten met de server of direct dingen veranderen op de pagina zelf
     <br><br>
 
-    <b>Stuff</b><br>
-    JavaScript voorbeelden
+    <b>Klik teller</b><br>
+    Om een voorbeeld te laten zien van het feit dat javascript acties van de gebruiker kan controlleren staat er hieronder een simpele teller. Elke keer als je op <i>klik</i> klikt gaat het getal één omhoog en zal terugkeren naar 0 als je op <i>reset</i> klikt.
   </p>
+  <button type="button" onclick="telOp()">klik</button>
+  <button type="button" onclick="zetTerug()">reset</button>
+  <p id='nummer'>0</p>
   </div>
 </div>
 <% include ../static/footer.ejs %>

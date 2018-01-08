@@ -197,7 +197,7 @@ html {
 
 /* CSS voor info.html */
 .block {
-
+padding-right: 20%;
 }
 
 .logo {
@@ -205,12 +205,14 @@ html {
 }
 
 #testHeaders {
-  border: 1px solid black;
-  display: inline-block;
+  border: 1px solid #bebab0;
+  background-color: #f5f5f5;
   padding: 10px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
   font-family: 'Times', serif;
-  color: black;
+
 }
 
 #testCol {
@@ -273,6 +275,46 @@ html {
   margin: 4px 0px;
 }
 
+.codeEen {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+
+.codeTwee {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+
+.codeDrie {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+
+.codePop {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+
 .popUp {
     display: none;
     text-align: center;
@@ -289,10 +331,10 @@ html {
 
 .popUp-content {
     background-color: transparent;
-    width: 24%;
-    position: fixed;
-    top: 35%;
-    left: 35%;
+    width: auto;
+    position: absolute;
+    top: 41%;
+    left: 40%;
 
 }
 
@@ -316,6 +358,10 @@ html {
     cursor: zoom-in;
 }
 
+.codeIdthree:hover{
+    cursor: zoom-in;
+}
+
 .codeId {
   text-align: left;
   background: transparent;
@@ -329,6 +375,12 @@ html {
 }
 
 .codeIdtwo {
+  text-align: left;
+  background: transparent;
+  border: none !important;
+}
+
+.codeIdthree {
   text-align: left;
   background: transparent;
   border: none !important;
@@ -444,3 +496,10 @@ html {
 .show {
     visibility: visible;
   }
+
+/* teller */
+
+#nummer {
+  margin-left: 3px;
+  margin-top: 10px;
+}
