@@ -23,11 +23,13 @@ $(document).ready(function(){
       },
       type: 'POST',
       success: function (data) {
-        console.log(data)
+        $("#notifBar").fadeIn("slow").append(data);
+        setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
         window.location.reload()
       },
       error: function (xhr, status, error) {
-        console.log(xhr.responseText)
+        $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append(xhr.responseText);
+        setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
       }
     });
   });  
