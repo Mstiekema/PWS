@@ -43,8 +43,11 @@ $(document).ready(function() {
   }
 
 // popup info ?
-  $(".info").on("click", function() {
-    $(this).children(".infoText").toggleClass("show");
+  $("#panels").on("click", function() {
+    $(this).children(".infoTextL").toggleClass("show");
+  });
+  $("#mainInf").on("click", function() {
+    $(this).children(".infoTextR").toggleClass("show");
   });
 
   //pop up van code vensters

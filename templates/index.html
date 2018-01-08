@@ -1,10 +1,13 @@
 <% include ../static/header.ejs %>
 <div class="main">
-
-
   <div class="container">
-     <img id="backgroundImg" src="../backgroundHeader.png" alt="Website">
-      <h1 id="mainHeader">Interactieve en Dynamische Website</h1>
+    <img id="backgroundImg" src="../backgroundHeader.png" alt="Website">
+    <div id="mainInf" class="btn btn-danger iButton">&#9432;
+      <span class="infoTextR">
+        Deze pulserende info knoppen geven je meer informatie over bepaalde delen op de website.
+      </span>
+    </div>
+    <h1 id="mainHeader">Interactieve en Dynamische Website</h1>
   </div>
 
   <div class="balk">
@@ -12,11 +15,9 @@
   </div>
 
   <div class="row">
-    <div class="columnSide">
-    </div>
-
+    <div class="columnSide"></div>
     <div class="columnMiddle">
-
+      
       <div class="responsive" onclick="location.href='/talen';">
         <div class="boxMain">
           <img src="../programmeertalen.png" alt="Talen">
@@ -103,9 +104,9 @@
      </div>
 
      <div class="columnSide">
-       <div class="info">?
-         <span class="infoText">
-           Dit zijn 'bubbles' die je naar verschillende pagina's leiden wanneer je erop klikt. Bovendien, als je er
+       <div id="panels" class="btn btn-danger iButton">&#9432;
+         <span class="infoTextL">
+           Dit zijn panels die je naar verschillende pagina's leiden wanneer je erop klikt. Bovendien, als je er
            met je muis overheen gaat dan veranderd de kleur van de border en van er komt een kleine schaduw.
          </span>
        </div>
