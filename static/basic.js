@@ -2,9 +2,20 @@ $(document).ready(function() {
   console.log("The page has loaded!");
   // Test om te zien of de pagina is geladen
 
+  //laadscherm weghalen
+ if(window.location == "http://pws.yucibot.nl/#loggedin") {
+  document.getElementsByClassName("loader-wrapper")[0].style.visibility = "visible";
+  document.getElementsByClassName("loader-wrapper")[1].style.visibility = "visible";
+  document.getElementsByClassName("loader-wrapper")[2].style.visibility = "visible";
+  setTimeout(function(){
+      $('body').addClass('loaded');
+      $('h1').css('color','#222222');
+  }, 6000);
+};
+
   $('#zoekknop').on('click', function(event) {
     zoek()
-  });
+  });7
 
   $("#zoek").keyup(function(ev) {
     if (ev.which === 13) {
@@ -28,7 +39,7 @@ $(document).ready(function() {
       window.location.href = "/zoek/" + zoek
     }
   }
-  
+
   if (document.URL.indexOf('#logout') != -1) {
     $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append("Succesvol uitgelogd!");
     setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
@@ -378,3 +389,6 @@ function zetTerug() {
      counter = 0;
     document.getElementById("nummer").innerHTML = 0;
 };
+
+//loading screen
+//#loggedin

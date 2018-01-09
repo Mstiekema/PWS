@@ -57,16 +57,17 @@ app.get('/talen', function (req, res) {
   res.render('info.html')
 })
 
+app.get('/paint', function (req, res) {
+  res.render('paint.html')
+})
+
+
 app.get('/zoek/:zoek', function (req, res) {
   res.render('zoek.html', {zoek: req.params.zoek})
 })
 
 app.get('/uitleg/:ondw', function (req, res) {
   res.render('uitleg.html', {uitleg: req.params.ondw})
-})
-
-app.get('/paint', function (req, res) {
-  res.render('paint.html')
 })
 
 app.get('/uren/:user', function (req, res) {
@@ -129,7 +130,7 @@ app.get('/login/new', function (req, res) {
 
 app.get('/logout', function(req, res) {
 	req.session.destroy();
-	res.redirect('/#logout')
+	res.redirect('/')
 })
 
 // Posts
@@ -160,15 +161,9 @@ app.post('/login/new', function(req, res) {
 app.post('/uren', function(req, res) {
 	console.log(req.body)
 	req.body.username = req.session.user.username
-	var permittedUsers = ["Mstiekema", "Jelte_akker", "JitzeO"]
-	if (permittedUsers.indexOf(req.body.username) != -1) {
-		conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
-			res.status(200).send('Uren succesvol toegevoegd aan database.')
-		})
-	} else {
-		res.status(401).send('Alleen Jelte, Jitze of Merijn mogen uren toevoegen aan de database.')
-	}
-
+	conn.query('INSERT INTO uren set ?', req.body, function(err, result) {
+		res.status(200).send('Uren succesvol toegevoegd aan database.')
+	})
 })
 
 app.all('*', function(req, res, next) {
