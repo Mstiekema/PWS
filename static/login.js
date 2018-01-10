@@ -27,7 +27,7 @@ $(document).ready(function() {
         window.location.href = "/#newacc"
       },
       error: function (xhr, status, error) {
-        $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append(xhr.responseText);
+        $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").empty().append(xhr.responseText);
         setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
       }
     });
@@ -46,7 +46,7 @@ $(document).ready(function() {
         window.location.href = "/#loggedin"
       },
       error: function (xhr, status, error) {
-        $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append(xhr.responseText);
+        $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").empty().append(xhr.responseText);
         setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
       }
     });

@@ -3,19 +3,19 @@ $(document).ready(function() {
   // Test om te zien of de pagina is geladen
 
   //laadscherm weghalen
- if(window.location == "http://pws.yucibot.nl/#loggedin") {
-  document.getElementsByClassName("loader-wrapper")[0].style.visibility = "visible";
-  document.getElementsByClassName("loader-wrapper")[1].style.visibility = "visible";
-  document.getElementsByClassName("loader-wrapper")[2].style.visibility = "visible";
-  setTimeout(function(){
+  if(document.URL.indexOf('#loggedin') != -1) {
+    document.getElementsByClassName("loader-wrapper")[0].style.visibility = "visible";
+    document.getElementsByClassName("loader-wrapper")[1].style.visibility = "visible";
+    document.getElementsByClassName("loader-wrapper")[2].style.visibility = "visible";
+    setTimeout(function(){
       $('body').addClass('loaded');
       $('h1').css('color','#222222');
-  }, 6000);
-};
+    }, 6000);
+  };
 
   $('#zoekknop').on('click', function(event) {
     zoek()
-  });7
+  });
 
   $("#zoek").keyup(function(ev) {
     if (ev.which === 13) {
@@ -25,9 +25,8 @@ $(document).ready(function() {
 
   function zoek() {
     var zoek = document.getElementById('zoek').value
-    // Controleren of zoek alleen maar spaties bevat
     if ($.trim(zoek).length == 0) {
-      $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append("Je moet eerst wat invoeren voordat je wat zoekt");
+      $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").empty().append("Je moet eerst wat invoeren voordat je wat zoekt");
       setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
       return
     }
@@ -41,13 +40,13 @@ $(document).ready(function() {
   }
 
   if (document.URL.indexOf('#logout') != -1) {
-    $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").append("Succesvol uitgelogd!");
+    $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").empty().append("Succesvol uitgelogd!");
     setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
   } else if (document.URL.indexOf('#loggedin') != -1) {
-    $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").append("Succesvol ingelogd!");
-    setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
+    setTimeout(function () { $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").empty().append("Succesvol ingelogd!"); }, 6000);
+    setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 9000);
   } else if (document.URL.indexOf('#newacc') != -1) {
-    $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").append("Succesvol een nieuw account aangemaakt!");
+    $("#notifBar").css({"background": "#dff0d8", "color": "#3c763d"}).fadeIn("slow").empty().append("Succesvol een nieuw account aangemaakt!");
     setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
   } else if (document.URL.indexOf('/login/new') != -1) {
     $("#loginBox").css({"height": "305px"})
@@ -65,8 +64,8 @@ $(document).ready(function() {
   var uiterlijk = document.getElementsByClassName("popUp")[0];
 
   try {
-  window.addEventListener('click', clickOutside);
-} catch (err) {};
+    window.addEventListener('click', clickOutside);
+  } catch (err) {};
 
   $(".codeId").click(function() {
     var codeBlok = $('.code').attr('id');
