@@ -9,15 +9,6 @@ html {
   padding: 0px 15px 0px 15px;
 }
 
-/* Move this shit to the right spot faggot */
-#showLoginTextToUser {
-  z-index: 1000000;
-  color: white;
-  position: absolute;
-  display: block;
-  margin: auto;
-}
-
 .iButton {
   position: relative;
   width: 50px;
@@ -231,6 +222,7 @@ html {
   width: 100%;
   height: 40px;
   margin-top: 8px;
+  padding-bottom: 10px;
   background-color: #013b51;
 }
 
@@ -248,6 +240,9 @@ html {
   background-color: #013b51;
   color: white;
 }
+
+@media only screen and (max-width: 610px){.footerBox{font-size: 11px;}}
+@media only screen and (max-width: 450px){.footerBox{font-size: 8px;}}
 
 .footerMiddle {
   text-align: center;
@@ -712,11 +707,27 @@ padding-right: 20%;
         transition: all 0.3s 1s ease-out;
 }
 
+#showLoginTextToUser {
+  z-index: 1000000;
+  color: white;
+  position: absolute;
+  display: block;
+  margin: auto;
+  font-size: 1.3vw;
+  padding: 4px;
+}
+
 #laadTekst {
-  left: 41%;
+  text-align: center;
   top: 10%;
   color: #FFFFFF;
   z-index: 1002;
   -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000);
           transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  font-size: 3vw;
+}
+
+@media only screen and (max-width: 600px){
+  #showLoginTextToUser{visibility: hidden;}
+  #laadTekst{font-size: 25px;}
 }
