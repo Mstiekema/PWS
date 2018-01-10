@@ -32,7 +32,11 @@
         </div>
       <% } else { %>
         <div class="card">
-          <button type="button" class="btn btn-danger" id="infBtn" data-toggle="popover">?</button>
+          <div id="uurInf" class="btn btn-danger iButton">&#9432;
+            <span class="infoTextR">
+              Hier kunnen alleen Jelte, Jitze en Merijn hun gegevens invoeren als ze zijn ingelogd. Hier kan je wel zien wat wij moeten doen om het in te voeren.
+            </span>
+          </div>
           <input type="text" class="form-control" id="tijd" placeholder="Tijd (in min)" disabled>
           <input type="text" class="form-control" id="act" placeholder="Activiteit" disabled>
           <input type="date" class="form-control" id="date" placeholder="Datum" disabled>
@@ -46,7 +50,13 @@
         <div id="uurChart"></div>
         <b>Totale tijd:</b> <%= tInfo.hours %> uur, <%= tInfo.minutes %> minuten<br>
         <b>Gemiddeld:</b> <%= tInfo.avHours %> uur, <%= tInfo.avMinutes %> minuten<br>
-        <% if (tInfo.user == "all") { %><button type="button" class="btn btn-danger" id="uurChartInf" data-placement="left" data-toggle="popover">?</button><% } %>
+        <% if (tInfo.user == "all") { %>          
+          <div id="uurChartInf" class="btn btn-danger iButton">&#9432;
+            <span class="infoTextL">
+              Dit is een chart gemaakt met de <a href='https://developers.google.com/chart/' target='_null'>Google Chart API</a>. Door het gebruiken van EJS, importeren we informatie uit de database en worden dan in deze chart gezet.
+            </span>
+          </div>
+        <% } %>
       </div>
     </p>
     <div>

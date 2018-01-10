@@ -109,6 +109,12 @@ var text = new String(`$.ajax({ |
   $("#mainInf").on("click", function() {
     $(this).children(".infoTextR").toggleClass("show");
   });
+  $("#uurInf").on("click", function() {
+    $(this).children(".infoTextR").toggleClass("show");
+  });
+  $("#uurChartInf").on("click", function() {
+    $(this).children(".infoTextL").toggleClass("show");
+  });
 
   //pop up van code vensters
   var uiterlijk = document.getElementsByClassName("popUp")[0];
