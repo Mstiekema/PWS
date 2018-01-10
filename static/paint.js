@@ -179,19 +179,3 @@ $("#reset").hover(function(){
 $("#reset").mouseout(function(){
   $("#resetId").removeClass("show");
 });
-
-//teller
-var counter = {};
-var add = (function () {
-  counter = 0;
-  return function () {return counter += 1;}
-})();
-
-function telOp() {
-  document.getElementById("nummer").innerHTML = add();
-};
-
-function zetTerug() {
-  counter = 0;
-  document.getElementById("nummer").innerHTML = 0;
-};

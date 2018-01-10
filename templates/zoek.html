@@ -1,6 +1,52 @@
 <% include ../static/header.ejs %>
-<div class="main">
-  <p>Je hebt gezocht naar het volgende woord:</p>
-  <h1><%= zoek %></h1>
-</div>
+  <div class="main">
+    <% if (zoek != "uitleg") { %>
+      <div class="balk">
+        <p>Je hebt gezocht naar het volgende woord:</p>
+        <h1><%= zoek %></h1>
+      </div><br>    
+    <% } %>
+    
+    <h3>Zoeken</h3>
+    <p>
+      Op de website kan je ook zoeken naar dingen. Je kan naar random woorden zoeken of je zoekt naar bepaalde keywords om op andere bestaande pagina's te komen. Hieronder kan je zien welke keywords je naar welke pagina brengt.
+      <ul>
+        <li><b>Basics</b> | HTML, CSS, JavaScript, JS, basics, programmeertalen, programmeertaal, taal, talen</li>
+        <li><b>Uren</b> | uren, logboek, tijd</li>
+        <li><b>Paint</b> | paint, kleuren, kleur</li>
+        <li><b>Login</b> | login, account, nieuw account</li>
+        <li><b>Website uitleg</b> | website, backend, nodejs, server</li>
+        <li><b>Database uitleg</b> | database, mysql, tables</li>
+        <li><b>Login uitleg</b> | login uitleg</li>
+        <li><b>Paint uitleg</b> | paint uitleg, kleur uitleg</li>
+      </ul>
+      Om dit te doen, hebben we natuurlijk wat JavaScript nodig. Eerst maken we een object waar we alle keywords per pagina invoeren als array. Daarna loopen we door het object kijken we of het gezochte woord in de array staat van de bepaalde pagina. Als dat waar is, dan sturen we de gebruiker naar die pagina en stoppen we de rest van de zoek functie.<br>
+      <button class="codeId"><pre class="code" id="elf">
+var searchWords = {
+  "/basics": ["html", "css", "javascript", "js", "basics", "programmeertalen", "programmeertaal", "taal", "talen"],
+  "/uren": ["uren", "logboek", "tijd"],
+  "/paint": ["paint", "kleuren", "kleur"],
+  "/login": ["login", "account", "nieuw account"],
+  "/uitleg/website": ["website", "backend", "nodejs", "server"],
+  "/uitleg/database": ["database", "mysql", "tables"],
+  "/uitleg/login": ["login uitleg"],
+  "/uitleg/paint": ["paint uitleg", "kleur uitleg"]
+}
+
+for (var key in searchWords) {
+  if (searchWords[key].indexOf(zoek.toLowerCase()) != -1) {
+    window.location.href = key
+    return
+  }
+}</pre></button><br>
+      Als je naar andere woorden zoekt komt je op deze pagina terecht en kan je bovenaan zien naar welk woord je hebt gezocht. Dit gebeurt door eerst de waarde van de zoekbox input te halen en dan door te sturen naar <code>/zoek/:woord</code>. Als je naar iets probeert te zoeken zonder iets ingevoerd te hebben, krijg je een error melding dat je eerst wat moet opzoeken, omdat je anders een niet bestaande pagina zou krijgen.
+    </p>
+  </div>
+  <div class="popUp">
+    <div class="popUp-content">
+      <pre class="codePop" id="popUp-inhoud" style="text-align: left;">
+        Work is done
+      </pre>
+    </div>
+  </div>
 <% include ../static/footer.ejs %>

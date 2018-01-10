@@ -12,7 +12,11 @@ $(document).ready(function() {
   $('#newLogin').on('click', function(event) {
     var p1 = $("input[name='newPassword']").val();
     var p2 = $("input[name='confPassword']").val();
-    if(p1 != p2) return window.alert("Wachtwoorden komen niet overeen");
+    if(p1 != p2) {
+      $("#notifBar").css({"background": "#f2dede", "color": "#a94442"}).fadeIn("slow").empty().append("Wachtwoorden komen niet overeen!");
+      setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 3000);
+      return
+    }
     
     $.ajax({
       url: '/login/new',

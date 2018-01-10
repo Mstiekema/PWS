@@ -63,9 +63,26 @@ var text = new String(`$.ajax({ |
       setTimeout(function () { $("#notifBar").fadeOut("slow"); }, 5000);
       return
     }
-    if (zoek == "jitze's heterosexualiteit") {
-      window.location.href = "/jitze";
-    } else if (zoek.indexOf("zeep") != -1) {
+    
+    var searchWords = {
+      "/basics": ["html", "css", "javascript", "js", "basics", "programmeertalen", "programmeertaal", "taal", "talen"],
+      "/uren": ["uren", "logboek", "tijd"],
+      "/paint": ["paint", "kleuren", "kleur"],
+      "/login": ["login", "account", "nieuw account"],
+      "/uitleg/website": ["website", "backend", "nodejs", "server"],
+      "/uitleg/database": ["database", "mysql", "tables"],
+      "/uitleg/login": ["login uitleg"],
+      "/uitleg/paint": ["paint uitleg", "kleur uitleg"]
+    }
+    
+    for (var key in searchWords) {
+      if (searchWords[key].indexOf(zoek.toLowerCase()) != -1) {
+        window.location.href = key
+        return
+      }
+    }
+    
+    if (zoek.indexOf("zeep") != -1) {
       window.open('https://www.youtube.com/watch?v=t99CXCA4GFs');
     } else {
       window.location.href = "/zoek/" + zoek
@@ -136,6 +153,24 @@ var text = new String(`$.ajax({ |
         $(".tile").toggleClass("raster");
           $(".rasterButton").toggleClass("paintActive");
 });`
+    } else if (codeBlok == "elf") {
+      var codeBlokinhoud = `var searchWords = {
+        "/basics": ["html", "css", "javascript", "js", "basics", "programmeertalen", "programmeertaal", "taal", "talen"],
+        "/uren": ["uren", "logboek", "tijd"],
+        "/paint": ["paint", "kleuren", "kleur"],
+        "/login": ["login", "account", "nieuw account"],
+        "/uitleg/website": ["website", "backend", "nodejs", "server"],
+        "/uitleg/database": ["database", "mysql", "tables"],
+        "/uitleg/login": ["login uitleg"],
+        "/uitleg/paint": ["paint uitleg", "kleur uitleg"]
+      }
+      
+      for (var key in searchWords) {
+        if (searchWords[key].indexOf(zoek.toLowerCase()) != -1) {
+          window.location.href = key
+          return
+        }
+      }`
     }
 
     document.getElementById("popUp-inhoud").innerHTML = codeBlokinhoud;
@@ -223,3 +258,19 @@ var text = new String(`$.ajax({ |
     }
   }
 })
+
+//teller
+var counter = {};
+var add = (function () {
+  counter = 0;
+  return function () {return counter += 1;}
+})();
+
+function telOp() {
+  document.getElementById("nummer").innerHTML = add();
+};
+
+function zetTerug() {
+  counter = 0;
+  document.getElementById("nummer").innerHTML = 0;
+};
