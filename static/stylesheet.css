@@ -257,6 +257,17 @@ padding-right: 20%;
 
 }
 
+#progTaalImg {
+  position: absolute;
+  right: 0px;
+  /* width: 512px;
+  height: 300px; */
+  display: block;
+  width: 25%;
+  height: auto;
+  margin: auto;
+}
+
 #testHeaders {
   border: 1px solid #bebab0;
   background-color: #f5f5f5;
@@ -281,7 +292,7 @@ padding-right: 20%;
 #loginBox {
   text-align: center;
   width: 250px;
-  height: 250px;
+  height: 220px;
   border: 1px solid #828282;
   border-radius: 10px;
   margin: auto;
