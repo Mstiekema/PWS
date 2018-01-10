@@ -168,8 +168,8 @@ html {
   width: 230px;
   cursor: default;
   white-space: normal;
-  margin-left: -273px;
-  margin-top: -55px;
+  margin-left: -275px;
+  margin-top: -47px;
   color: black;
   background-color: white;
   text-align: center;
@@ -209,7 +209,7 @@ html {
     width: 100%;
     margin: 6px 0;
   }
-  .infoText{margin-left: -235px; margin-top:-43px;font-size: 12px; width: 220px; padding: 4px;}
+  /*.infoText{margin-left: -235px; margin-top:-43px;font-size: 12px; width: 220px; padding: 4px;}*/
 }
 
 .boxMain:hover {
