@@ -258,6 +258,23 @@ var text = new String(`$.ajax({ |
     uiterlijk.style.display = 'block';
   });
 
+  $(".codeIdFour").click(function() {
+    var codeBlokdrie = $('.codeVier').attr('id');
+    console.log(codeBlokdrie);
+    if (codeBlokdrie == "elf") {
+      var codeBlokinhoud = `server {
+   listen 80;
+   server_name pws.yucibot.nl;
+   location / {
+      proxy_pass http://localhost:1000;
+   }
+}`
+} else {};
+
+    document.getElementById("popUp-inhoud").innerHTML = codeBlokinhoud;
+    uiterlijk.style.display = 'block';
+  });
+
   function clickOutside() {
     if (event.target == uiterlijk){
     uiterlijk.style.display = 'none';

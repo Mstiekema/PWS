@@ -375,6 +375,16 @@ padding-right: 20%;
   margin: 4px 0px;
 }
 
+.codeVier {
+  border: 1px solid #bebab0;
+  color: #5e676d;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+
 .codePop {
   border: 1px solid #bebab0;
   color: #5e676d;
@@ -451,6 +461,12 @@ padding-right: 20%;
 }
 
 .codeIdthree {
+  text-align: left;
+  background: transparent;
+  border: none !important;
+}
+
+.codeIdFour {
   text-align: left;
   background: transparent;
   border: none !important;
