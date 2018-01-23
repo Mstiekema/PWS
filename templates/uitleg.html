@@ -94,10 +94,10 @@ app.get('/zoek/:zoek', function (req, res) {
       <code>res</code> is in dit geval een array met meerdere arrays erin. Van elke array pakken we de minuten waarde en printen we deze in bold uit op de pagina.<br>
       Het verschil tussen de twee manieren, is het gebruik van de <code>=</code>. Als je <code>&lt;&#37;&#61; &#37;&gt;</code> gebruikt, dan print je gewoon de waarde uit. Als je <code>&lt;&#37; &#37;&gt;</code> gebruikt kan je een if statement, for loop of iets anders doen.<br><br>
       Wat je ook kan doen met EJS het in importeren van andere bestanden. Hier maken wij ook gebruik van, omdat de header en menu altijd hetzelfde zijn op elke pagina. We hebben daarom een header bestand gemaakt en importeren wij deze aan het begin van elke HTML template met <code>&lt;&#37; include ../static/header.ejs &#37;&gt;</code>. Door dit te doen besparen wij op elke HTML pagina een tientallen lines. Dit maakt het gehele project voor ons dus veel overzichtelijker.<br><br>
-      
+
       <h4>Webhosting</h4>
       Om de website online te brengen, moet de website gehost worden. Dit wordt gedaan door je project op een server te zetten en dan hierop te runnen. Wij doen dit op de Raspberry Pi 3 van Merijn. Als de website dan wordt aangezet, kan je echter alleen nog maar via de server zelf de website zien. Als je het lokaal host moet je eerst in je router je poorten opzetten, maar bij de meeste online hosting bedrijven hoeft dit allemaal niet. Zodra dit is gedaan, kan je via elke pc met het publieke IP adres van je server de website zien.<br>
-      Om het op een echte website te zien met een URL in plaats van een IP moet je eerst een domein kopen. Je moet dan in de DNS instellingen van je domein je URL doorverwijzen naar je IP adres. Als je website wordt gehost op poort 80 of 443 ben je nu klaar. 
+      Om het op een echte website te zien met een URL in plaats van een IP moet je eerst een domein kopen. Je moet dan in de DNS instellingen van je domein je URL doorverwijzen naar je IP adres. Als je website wordt gehost op poort 80 of 443 ben je nu klaar.
       <br>Als je echter meerdere websites hebt of je website host op een andere port, dan moet je NGINX gebruiken om die port met je URL te verbinden.<br>
 <button class="codeIdFour"><pre class="codeVier" id="elf">
 server {
@@ -109,7 +109,7 @@ server {
 }
 </pre></button><br>
       Met dit kleine stukje code geven we aan dat de URL <code>pws.yucibot.nl</code> wordt doorverwezen naar <code>localhost:1000</code> waar onze website zich bevindt. Zodra dit gedaan is, kan iedereen op de wereld jouw website zien.
-    </p>  
+    </p>
   <% include ../static/footer.ejs %>
 
   <% } else if (uitleg == "database") { %>
@@ -205,7 +205,7 @@ $("#zwart").click(function() {
       de kleur zwart. Hierna wordt er gecontroleerd of je jouw muis boven een van de schildervakjes hebt met <code>class="tile"</code>. Als dat klopt dan is er een <code>if</code> en <code>else</code>
       fucntie. Deze checkt of de variabele <code>down</code> waar is of niet, oftewel of je de muisknop ingedrukt houdt of niet. Is dit het geval dan veranderd de <code>background-color</code>
       van het vakje naar <code>black</code>, het vakje wordt zwart. Het probleem met deze manier is alleen dat het eerste vakje wat je op clickt niet zwart wordt, daar is de <code>else</code> functie voor.
-      In de else fucntie wordt nog eens gecontroleerd of je de muisknop ingedrukt houdt boven een vakje met <code>$(".tile").mousedown</code> en als dat het geval is dan wordt het desbetreffend vakje zwart.
+      In de else functie wordt nog eens gecontroleerd of je de muisknop ingedrukt houdt boven een vakje met <code>$(".tile").mousedown</code> en als dat het geval is dan wordt het desbetreffend vakje zwart.
       <br><br>
 
       <h4>De resetknop</h4>
